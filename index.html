@@ -173,6 +173,36 @@ footer{border-top:1px solid var(--line);padding-block:32px 96px;font-size:.8rem;
 footer .wrap{display:flex;flex-direction:column;gap:10px}
 footer nav{display:flex;flex-wrap:wrap;gap:16px}
 
+
+/* dark hero */
+.herobg{background:radial-gradient(1200px 500px at 85% 20%, rgba(180,149,94,.18), transparent 60%), #0B1A2B;color:#F0F2F5}
+.herobg .eyebrow{color:#D1B27A}
+.herobg .lede{color:#B7C3D1}
+.herobg .hero h1 em{color:#D1B27A}
+.herobg .risk{color:#B7C3D1}
+.herobg .risk span::before{color:#7FD3AE}
+.btn-ghost-dark{background:transparent;color:#F0F2F5;border-color:rgba(240,242,245,.3)}
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:10px}
+.phone{width:min(340px,100%);background:#FFFFFF;color:#0B1A2B;border-radius:38px;border:10px solid #050D16;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 1px rgba(209,178,122,.35);overflow:hidden;display:flex;flex-direction:column}
+.ph-top{display:flex;gap:10px;align-items:center;padding:16px 16px 12px;border-bottom:1px solid #E3E8EE}
+.ph-top b{display:block;font-size:.92rem} .ph-top small{color:#6B7888;font-size:.74rem}
+.ph-av{width:34px;height:34px;border-radius:50%;background:#B4955E;color:#0B1A2B;display:grid;place-items:center;font-weight:800;font-size:.75rem}
+.ph-body{padding:14px;display:flex;flex-direction:column;gap:8px;min-height:360px;background:#F5F7FA}
+.msg{max-width:84%;padding:9px 12px;border-radius:16px;font-size:.88rem;line-height:1.4}
+.msg.in{align-self:flex-start;background:#FFFFFF;border:1px solid #E3E8EE;border-bottom-left-radius:4px}
+.msg.out{align-self:flex-end;background:#0B1A2B;color:#F0F2F5;border-bottom-right-radius:4px}
+.typing{align-self:flex-end;background:#0B1A2B;border-radius:16px;padding:10px 12px;display:none;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#D1B27A;display:block;animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+.booked{align-self:center;margin-top:4px;background:#E3F4EC;color:#1F7A55;font-weight:700;font-size:.82rem;padding:6px 12px;border-radius:999px}
+.ph-timer{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-top:1px solid #E3E8EE;font-size:.8rem;color:#6B7888}
+.ph-timer b{font-family:var(--f-mono);color:#1F7A55;font-size:1rem;font-variant-numeric:tabular-nums}
+.ph-note{font-size:.74rem;color:#8796A8}
+.anim .msg,.anim .booked{opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease}
+.anim .show{opacity:1;transform:none}
+.anim .typing.show{display:flex}
+
 /* mobile sticky CTA */
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:35;background:var(--surface);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:none}
 .mbar .btn{width:100%}
@@ -207,6 +237,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px}
 </header>
 
 <main id="top">
+  <div class="herobg">
   <div class="wrap hero">
     <div class="stack">
       <p class="eyebrow">AI Speed-to-Lead for med spas</p>
@@ -214,28 +245,27 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px}
       <p class="lede">You pay for every Botox, filler and laser inquiry from Meta. Our AI replies instantly, day and night, follows up, and sends each lead to your booking link, in your spa's voice.</p>
       <div class="ctas">
         <a class="btn btn-gold" data-link="audit" href="#audit">Get my free Lead Leak Audit</a>
-        <a class="btn btn-line" href="#calc">See what slow replies cost</a>
+        <a class="btn btn-ghost-dark" href="#calc">See what slow replies cost</a>
       </div>
       <div class="risk"><span>Free audit, no call needed</span><span>Live in 48 hours</span><span>Full refund if you don't see results</span></div>
     </div>
 
-    <aside class="timeline" aria-label="Example: the same lead, two outcomes">
-      <div class="tl-head"><b>Same lead. Two outcomes.</b><span class="tag">illustration</span></div>
-      <div class="lane slow">
-        <div class="lane-title">Without a system</div>
-        <div class="ev"><time>8:52 PM</time><div class="bubble">Hi! How much is lip filler? Any openings this week?</div></div>
-        <div class="ev"><time>8:53 PM</time><div>She messages two other spas.</div></div>
-        <div class="ev"><time>9:40 AM</time><div class="bubble out">Hi! Thanks for reaching out…</div></div>
-        <div class="ev"><time>9:41 AM</time><div class="lost">"Already booked, thanks."</div></div>
+    <div class="phone-wrap">
+      <div class="phone" aria-label="Example conversation: a new lead is answered and books in under a minute">
+        <div class="ph-top"><span class="ph-av">LS</span><div><b>Lumière Med Spa</b><small>Instagram · Sponsored ad lead</small></div></div>
+        <div class="ph-body" id="chat">
+          <div class="msg in" data-t="0">Hi! How much is lip filler? Any openings this week? 💋</div>
+          <div class="typing" data-t="1"><i></i><i></i><i></i></div>
+          <div class="msg out" data-t="2">Hi Jess! Great question. Lip filler starts with a quick consult so we can match the look you want. I have Thursday 4:30 or Friday 11:00. Which works?</div>
+          <div class="msg in" data-t="3">Thursday 4:30!</div>
+          <div class="msg out" data-t="4">Done ✨ Here's your link to confirm: book.lumiere…</div>
+          <div class="booked" data-t="5">✓ Consultation booked</div>
+        </div>
+        <div class="ph-timer"><span>First reply</span><b id="timer">0:47</b></div>
       </div>
-      <div class="lane fast">
-        <div class="lane-title">With AI Speed-to-Lead</div>
-        <div class="ev"><time>8:52 PM</time><div class="bubble">Hi! How much is lip filler? Any openings this week?</div></div>
-        <div class="ev"><time>8:52 PM</time><div class="bubble out">Hi Jess! Happy to help. Lip filler starts with a quick consult. Thursday 4:30 or Friday 11:00?</div></div>
-        <div class="ev"><time>8:54 PM</time><div class="won">Consultation booked.</div></div>
-      </div>
-      <p class="tl-note">How the system works. Not a client result.</p>
-    </aside>
+      <p class="ph-note">Example conversation. Spa name is fictional.</p>
+    </div>
+  </div>
   </div>
 
   <section class="pain">
@@ -443,6 +473,23 @@ document.querySelectorAll("[data-link]").forEach(a => {
   }
   ["c-leads","c-late","c-book","c-value"].forEach(id => $(id).addEventListener("input", run));
   run();
+})();
+
+
+// Hero phone: replays the conversation. Complete at rest when motion is reduced.
+(function(){
+  const chat=document.getElementById("chat"); if(!chat) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const items=[...chat.children], timer=document.getElementById("timer");
+  const at=[300,1100,2600,4600,5800,6800];
+  function play(){
+    chat.classList.add("anim"); items.forEach(i=>i.classList.remove("show"));
+    timer.textContent="0:00"; let t0=performance.now(), stop=false;
+    (function tick(){ if(stop) return; const sec=Math.min(47,Math.floor((performance.now()-t0)/2600*47)); timer.textContent="0:"+String(sec).padStart(2,"0"); if(sec<47) requestAnimationFrame(tick); })();
+    items.forEach((el,i)=>setTimeout(()=>{ el.classList.add("show"); if(el.classList.contains("msg")&&el.classList.contains("out")) items[1].classList.remove("show"); },at[i]));
+    setTimeout(play,11000);
+  }
+  play();
 })();
 
 // Exit-intent: once per visit, desktop only, after 8 seconds.
