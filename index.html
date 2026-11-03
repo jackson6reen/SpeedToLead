@@ -5,1274 +5,989 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="You're Paying for Leads You're Not Answering | AI Speed-to-Lead">
-<meta property="og:description" content="Every minute you wait to respond, you lose money. We fix that. Free Lead Leak Audit. Full refund guaranteed.">
+<meta property="og:title" content="Turn Your Dead Leads Into Booked Calls — In 14 Days | Ori Pinto AI Digital Growth">
+<meta property="og:description" content="AI that answers every lead in under 60 seconds so you stop paying for leads that ghost you. Free Lead Audit. Full refund if it doesn't work.">
 <meta property="og:type" content="website">
-<title>You're Paying for Leads You're Not Answering | Ori Pinto AI Digital Growth</title>
-<meta name="description" content="You're running ads. Leads come in. Nobody answers fast enough. We fix that with AI that replies in under 60 seconds, 24/7. Free audit. Full refund if it doesn't work.">
+<title>Turn Your Dead Leads Into Booked Calls — In 14 Days | Ori Pinto AI Digital Growth</title>
+<meta name="description" content="AI Speed-to-Lead: every inquiry answered in under 60 seconds, 24/7. Stop losing the leads you already paid for. Free audit, written guarantee.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <style>
+/* ─── DESIGN TOKENS ─────────────────────────────── */
 :root {
-  --black: #0A0A0A;
-  --white: #FFFFFF;
-  --off-white: #F5F5F0;
-  --gray-100: #F0F0EB;
-  --gray-200: #E0E0D8;
-  --gray-400: #9A9A90;
-  --gray-600: #5A5A52;
-  --gray-800: #2A2A22;
-  --gold: #D4A843;
-  --gold-light: #F0C860;
-  --gold-dark: #A8822E;
-  --red: #C0392B;
-  --green: #1A7A4A;
-  --green-light: #E8F5EE;
-  --f-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
-  --s1: .85rem; --s2: 1rem; --s3: 1.15rem; --s4: 1.35rem;
-  --s5: clamp(1.6rem, 3vw, 2.2rem);
-  --s6: clamp(2.2rem, 5vw, 3.8rem);
-  --s7: clamp(2.8rem, 7vw, 5.5rem);
-  --radius: 4px;
-  --radius-lg: 10px;
+  --ink:    #0D1B2A;
+  --white:  #FFFFFF;
+  --cream:  #F8F7F4;
+  --gray1:  #F0EEE9;
+  --gray2:  #D4D0C8;
+  --gray3:  #8C8880;
+  --gray4:  #4A4840;
+  --gold:   #B89A5A;
+  --gold-l: #D4B87A;
+  --gold-d: #8C7038;
+  --red:    #B83232;
+  --green:  #1E7A50;
+  --ff:     'Inter', system-ui, -apple-system, sans-serif;
+  --ease:   cubic-bezier(.16,1,.3,1);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+/* ─── RESET ─────────────────────────────────────── */
+*,*::before,*::after { box-sizing:border-box; }
+[hidden] { display:none!important; }
+html { scroll-behavior:smooth; }
+@media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+body { margin:0; background:var(--white); color:var(--ink); font-family:var(--ff); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+p { margin:0; }
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
+button { font-family:inherit; cursor:pointer; }
 
-body {
-  background: var(--white);
-  color: var(--black);
-  font-family: var(--f-sans);
-  font-size: var(--s2);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+/* ─── LAYOUT ─────────────────────────────────────── */
+.w  { max-width:1080px; margin:0 auto; padding:0 clamp(20px,4vw,48px); }
+.ws { max-width:720px;  margin:0 auto; padding:0 clamp(20px,4vw,48px); }
+
+/* ─── TYPE ────────────────────────────────────────── */
+.kicker {
+  display:inline-block;
+  font-size:.72rem; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold-d);
+  margin-bottom:14px;
 }
-
-img { display: block; max-width: 100%; }
-a { color: inherit; }
-p { margin: 0; }
-h1, h2, h3, h4 { margin: 0; line-height: 1.1; font-weight: 800; }
-h1 { font-size: var(--s7); letter-spacing: -.03em; }
-h2 { font-size: var(--s6); letter-spacing: -.025em; }
-h3 { font-size: var(--s4); font-weight: 700; }
-
-.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-.wrap-sm { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-.stack { display: flex; flex-direction: column; }
-.center { text-align: center; align-items: center; }
-
-section { padding-block: clamp(64px, 9vw, 120px); }
-
-/* Announce bar */
-.ann {
-  background: var(--black);
-  color: var(--gold-light);
-  text-align: center;
-  padding: 11px 20px;
-  font-family: var(--f-mono);
-  font-size: .75rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+h1 {
+  font-size:clamp(2.5rem,6.5vw,5rem);
+  font-weight:900; line-height:1.05;
+  letter-spacing:-.035em; margin:0;
 }
+h1 em { font-style:normal; color:var(--gold); }
+h2 {
+  font-size:clamp(1.8rem,4vw,3.2rem);
+  font-weight:900; line-height:1.1;
+  letter-spacing:-.03em; margin:0;
+}
+h3 { font-size:1.15rem; font-weight:800; margin:0; }
+.lede { font-size:clamp(1.05rem,2vw,1.25rem); color:var(--gray4); line-height:1.75; }
 
-/* Nav */
+/* ─── BUTTONS ─────────────────────────────────────── */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-family:var(--ff); font-weight:800; font-size:.95rem; letter-spacing:.01em;
+  padding:17px 34px; border-radius:6px; border:2px solid transparent;
+  cursor:pointer; transition:transform .15s var(--ease), box-shadow .15s var(--ease);
+  white-space:nowrap; text-decoration:none;
+}
+.btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,.18); }
+.btn-cta  { background:var(--gold); color:var(--ink); border-color:var(--gold); }
+.btn-cta:hover { background:var(--gold-l); border-color:var(--gold-l); }
+.btn-dark { background:var(--ink); color:var(--white); border-color:var(--ink); }
+.btn-ghost { background:transparent; color:var(--ink); border-color:var(--ink); }
+.btn-ghost:hover { background:var(--ink); color:var(--white); }
+.btn-ghost-w { background:transparent; color:var(--white); border-color:rgba(255,255,255,.35); }
+.btn-ghost-w:hover { background:rgba(255,255,255,.1); }
+.btn-lg { padding:20px 44px; font-size:1.05rem; }
+.btn-sm { padding:11px 22px; font-size:.85rem; }
+
+.ctas { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.proof-line {
+  display:flex; flex-wrap:wrap; gap:6px 22px;
+  font-size:.82rem; color:var(--gray3);
+}
+.proof-line span::before { content:"✓ "; color:var(--green); font-weight:800; }
+
+/* ─── NAV ─────────────────────────────────────────── */
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid var(--black);
+  position:sticky; top:0; z-index:40;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1.5px solid var(--gray2);
 }
 .nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding-block: 14px;
+  display:flex; justify-content:space-between; align-items:center;
+  gap:16px; padding-block:10px;
 }
-.nav-logo {
-  font-weight: 900;
-  font-size: 1.1rem;
-  letter-spacing: -.02em;
-  text-decoration: none;
-  color: var(--black);
-}
-.nav-logo span { color: var(--gold-dark); }
+.nav-logo { display:flex; align-items:center; }
+.nav-logo img { height:42px; width:auto; }
 
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: var(--f-sans);
-  font-weight: 800;
-  font-size: .9rem;
-  letter-spacing: .01em;
-  padding: 14px 28px;
-  border-radius: var(--radius);
-  text-decoration: none;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease;
-  white-space: nowrap;
-}
-.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
-.btn-black { background: var(--black); color: var(--white); border-color: var(--black); }
-.btn-black:hover { background: var(--gray-800); }
-.btn-gold { background: var(--gold); color: var(--black); border-color: var(--gold); }
-.btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
-.btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
-.btn-outline:hover { background: var(--black); color: var(--white); }
-.btn-lg { padding: 18px 40px; font-size: 1.05rem; }
-.btn-sm { padding: 10px 20px; font-size: .82rem; }
-
-.ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.risk-line { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: var(--s1); color: var(--gray-600); }
-.risk-line span::before { content: "✓ "; color: var(--green); font-weight: 800; }
-
-/* Hero */
+/* ─── HERO ────────────────────────────────────────── */
 .hero {
-  background: var(--black);
-  color: var(--white);
-  padding-block: clamp(72px, 10vw, 140px);
-  position: relative;
-  overflow: hidden;
+  background:var(--ink); color:var(--white);
+  padding-block: clamp(72px,10vw,130px);
+  position:relative; overflow:hidden;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 70% 30%, rgba(212,168,67,.15) 0%, transparent 60%);
-  pointer-events: none;
+.hero-bg {
+  position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 20%, rgba(184,154,90,.14) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 10% 90%, rgba(184,154,90,.06) 0%, transparent 50%);
 }
+#hero-canvas { position:absolute; inset:0; width:100%; height:100%; opacity:.45; pointer-events:none; }
 .hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;
 }
-.hero h1 { color: var(--white); }
-.hero h1 em { font-style: normal; color: var(--gold-light); display: block; }
-.hero-sub {
-  font-size: var(--s3);
-  color: rgba(255,255,255,.72);
-  line-height: 1.7;
-  max-width: 520px;
-  margin-top: 24px;
-}
-.hero-ctas { margin-top: 36px; }
-.hero-risk { color: rgba(255,255,255,.55); margin-top: 16px; }
-.hero-risk span::before { color: rgba(100,220,140,.9); }
+.hero-kicker { color:var(--gold-l); }
+.hero-h1 { margin-top:12px; }
+.hero-h1 em { color:var(--gold); }
+.hero-sub { font-size:clamp(1rem,1.8vw,1.2rem); color:rgba(255,255,255,.68); line-height:1.78; margin-top:22px; max-width:500px; }
+.hero-ctas { margin-top:34px; }
+.hero-proof { color:rgba(255,255,255,.45); margin-top:14px; }
+.hero-proof span::before { color:rgba(80,220,140,.85); }
 
-/* Phone mockup */
-.phone-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.phone {
-  width: min(340px, 100%);
-  background: #fff;
-  color: var(--black);
-  border-radius: 36px;
-  border: 8px solid rgba(255,255,255,.18);
-  box-shadow: 0 40px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(212,168,67,.3);
-  overflow: hidden;
-  transform: perspective(1200px) rotateY(-6deg) rotateX(2deg);
-  transition: transform .5s ease;
+/* Phone */
+.phone-shell {
+  perspective:1200px;
+  display:flex; justify-content:center;
 }
-.phone:hover { transform: perspective(1200px) rotateY(0) rotateX(0); }
-.ph-top {
-  display: flex; gap: 10px; align-items: center;
-  padding: 14px 16px 10px;
-  border-bottom: 1px solid #E8E8E8;
+.phone {
+  width:min(310px,90%);
+  background:#fff; color:var(--ink);
+  border-radius:36px;
+  border:8px solid rgba(255,255,255,.14);
+  box-shadow:0 48px 96px -24px rgba(0,0,0,.75), 0 0 0 1px rgba(184,154,90,.3);
+  overflow:hidden;
+  transform:rotateY(-7deg) rotateX(2deg);
+  transition:transform .6s var(--ease);
+}
+.phone:hover { transform:rotateY(0) rotateX(0); }
+.ph-bar {
+  display:flex; gap:10px; align-items:center;
+  padding:13px 15px 10px; border-bottom:1px solid #EAEAEA;
 }
 .ph-av {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--gold); color: var(--black);
-  display: grid; place-items: center;
-  font-weight: 900; font-size: .7rem;
+  width:30px; height:30px; border-radius:50%;
+  background:var(--gold); color:var(--ink);
+  display:grid; place-items:center;
+  font-weight:900; font-size:.65rem; flex-shrink:0;
 }
-.ph-top b { font-size: .88rem; display: block; }
-.ph-top small { color: #6B7888; font-size: .7rem; }
+.ph-bar b { font-size:.84rem; display:block; }
+.ph-bar small { color:#888; font-size:.66rem; }
 .ph-body {
-  padding: 12px; display: flex; flex-direction: column;
-  gap: 8px; min-height: 340px; background: #F5F7FA;
+  padding:11px 11px 8px;
+  display:flex; flex-direction:column; gap:7px;
+  min-height:290px; background:#F4F6FA;
 }
 .msg {
-  max-width: 82%; padding: 8px 12px;
-  border-radius: 16px; font-size: .84rem; line-height: 1.45;
+  max-width:84%; padding:8px 11px;
+  border-radius:16px; font-size:.8rem; line-height:1.45;
 }
-.msg.in {
-  align-self: flex-start; background: #fff;
-  border: 1px solid #E3E8EE; border-bottom-left-radius: 4px;
+.msg.i { align-self:flex-start; background:#fff; border:1px solid #E0E5EC; border-bottom-left-radius:4px; }
+.msg.o { align-self:flex-end; background:var(--ink); color:#fff; border-bottom-right-radius:4px; }
+.dots { align-self:flex-end; background:var(--ink); border-radius:16px; padding:9px 11px; display:none; gap:3px; }
+.dots i { width:5px; height:5px; border-radius:50%; background:var(--gold-l); display:block; animation:blink 1s infinite; }
+.dots i:nth-child(2){animation-delay:.22s} .dots i:nth-child(3){animation-delay:.44s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+.booked-pill {
+  align-self:center; background:#E6F5ED; color:var(--green);
+  font-weight:700; font-size:.72rem; padding:5px 11px; border-radius:999px;
 }
-.msg.out {
-  align-self: flex-end; background: var(--black);
-  color: #fff; border-bottom-right-radius: 4px;
+.ph-foot {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:9px 15px; border-top:1px solid #EAEAEA; font-size:.72rem; color:#888;
 }
-.typing {
-  align-self: flex-end; background: var(--black);
-  border-radius: 16px; padding: 10px 12px;
-  display: none; gap: 4px;
-}
-.typing i {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--gold); display: block;
-  animation: blink 1s infinite;
-}
-.typing i:nth-child(2) { animation-delay: .2s; }
-.typing i:nth-child(3) { animation-delay: .4s; }
-@keyframes blink { 0%,100%{opacity:.3}50%{opacity:1} }
-.booked {
-  align-self: center; margin-top: 4px;
-  background: var(--green-light); color: var(--green);
-  font-weight: 700; font-size: .78rem;
-  padding: 5px 12px; border-radius: 999px;
-}
-.ph-timer {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 16px; border-top: 1px solid #E3E8EE;
-  font-size: .76rem; color: #6B7888;
-}
-.ph-timer b { font-family: var(--f-mono); color: var(--green); font-size: .95rem; }
-.anim .msg, .anim .booked { opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
-.anim .show { opacity: 1; transform: none; }
-.anim .typing.show { display: flex; }
+.ph-foot b { font-family:monospace; color:var(--green); font-size:.9rem; }
+.anim .msg,.anim .booked-pill { opacity:0; transform:translateY(5px); transition:opacity .3s ease,transform .3s ease; }
+.anim .show { opacity:1; transform:none; }
+.anim .dots.show { display:flex; }
 
-/* Number stats */
-.stats-bar {
-  background: var(--gold);
-  padding: 28px 0;
-  border-top: 2px solid var(--black);
-  border-bottom: 2px solid var(--black);
+/* ─── SOCIAL PROOF STRIP ──────────────────────────── */
+.proof-strip {
+  background:var(--ink); color:rgba(255,255,255,.55);
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:22px 0;
 }
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+.proof-strip-inner {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:0;
 }
-.stat-item {
-  text-align: center;
-  padding: 0 20px;
-  border-right: 2px solid rgba(0,0,0,.15);
+.proof-item {
+  display:flex; flex-direction:column; align-items:center;
+  padding:0 40px; border-right:1px solid rgba(255,255,255,.1);
 }
-.stat-item:last-child { border-right: none; }
-.stat-num {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  color: var(--black);
-  letter-spacing: -.03em;
-  line-height: 1;
-}
-.stat-label {
-  font-size: .82rem;
-  font-weight: 600;
-  color: rgba(0,0,0,.65);
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
+.proof-item:last-child { border-right:none; }
+.proof-num { font-size:2.4rem; font-weight:900; color:var(--gold-l); line-height:1; letter-spacing:-.04em; }
+.proof-lbl { font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin-top:4px; text-align:center; max-width:140px; }
 
-/* Pain section */
-.pain-section { background: var(--off-white); border-top: 2px solid var(--black); border-bottom: 2px solid var(--black); }
-.section-label {
-  font-family: var(--f-mono);
-  font-size: .7rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--gray-600);
-  margin-bottom: 16px;
-}
-.pain-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  margin-top: 40px;
-  border: 2px solid var(--black);
-}
-.pain-card {
-  background: var(--white);
-  padding: 32px 28px;
-  border: none;
-  position: relative;
-}
-.pain-card:nth-child(1), .pain-card:nth-child(2) { border-bottom: 2px solid var(--black); }
-.pain-card:nth-child(odd) { border-right: 2px solid var(--black); }
-.pain-number {
-  font-size: 4rem;
-  font-weight: 900;
-  color: var(--gray-200);
-  line-height: 1;
-  margin-bottom: 12px;
-  font-variant-numeric: tabular-nums;
-}
-.pain-card h3 { margin-bottom: 8px; font-size: 1.15rem; }
-.pain-card p { color: var(--gray-600); font-size: .97rem; line-height: 1.65; }
+/* ─── SECTION BASE ──────────────────────────────── */
+.sec { padding-block:clamp(60px,8vw,110px); }
+.sec-dark { background:var(--ink); color:var(--white); }
+.sec-cream { background:var(--cream); }
 
-/* Big Quote / Callout */
-.callout-section {
-  background: var(--black);
-  color: var(--white);
-  padding-block: clamp(56px, 8vw, 100px);
+/* ─── PROBLEM SECTION ───────────────────────────── */
+.problem-grid {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  border:2px solid var(--ink); margin-top:48px;
 }
-.callout-section blockquote {
-  font-size: clamp(1.5rem, 3.5vw, 2.6rem);
-  font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: -.02em;
-  max-width: 880px;
-  margin: 0 auto;
-  text-align: center;
+.problem-card {
+  padding:32px 28px; background:var(--white);
+  border-right:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
 }
-.callout-section blockquote em {
-  font-style: normal;
-  color: var(--gold-light);
-}
-.callout-sub {
-  text-align: center;
-  color: rgba(255,255,255,.55);
-  font-size: var(--s3);
-  margin-top: 20px;
-  font-family: var(--f-mono);
-  font-size: .82rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
+.problem-card:nth-child(even) { border-right:none; }
+.problem-card:nth-child(3),.problem-card:nth-child(4) { border-bottom:none; }
+.p-icon { font-size:2rem; margin-bottom:14px; }
+.problem-card h3 { margin-bottom:10px; font-size:1.05rem; }
+.problem-card p { color:var(--gray4); font-size:.94rem; line-height:1.7; }
 
-/* Calculator */
-.calc-section { background: var(--white); }
-.calc-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: stretch;
-  margin-top: 48px;
+/* ─── MECHANISM / HOW ────────────────────────────── */
+.mech-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border:2px solid var(--ink); margin-top:48px;
 }
-.field { margin-bottom: 28px; }
-.field label {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  font-weight: 700;
-  font-size: .95rem;
-  margin-bottom: 10px;
+.mech-card { padding:30px 22px; border-right:2px solid var(--ink); }
+.mech-card:last-child { border-right:none; }
+.mech-n {
+  font-size:3rem; font-weight:900; color:var(--gold);
+  line-height:1; margin-bottom:16px; letter-spacing:-.04em;
 }
-.field output {
-  font-family: var(--f-mono);
-  color: var(--gold-dark);
-  font-weight: 600;
-}
-.field small { display: block; color: var(--gray-400); font-size: .8rem; margin-top: 6px; }
-input[type=range] {
-  width: 100%;
-  accent-color: var(--gold-dark);
-  height: 4px;
-  cursor: pointer;
-}
-.calc-result {
-  background: var(--black);
-  color: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-  border: 2px solid var(--black);
-}
-.calc-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  padding-bottom: 16px;
-}
-.calc-row span { color: rgba(255,255,255,.6); font-size: .92rem; }
-.calc-row b { font-family: var(--f-mono); font-size: 1.35rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.calc-row.big b { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--gold-light); }
-.calc-result .fine { color: rgba(255,255,255,.4); font-size: .78rem; }
+.mech-when { font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gray3); margin-bottom:10px; }
+.mech-card h3 { font-size:1rem; margin-bottom:8px; }
+.mech-card p { color:var(--gray4); font-size:.88rem; line-height:1.65; }
 
-/* How it works */
-.how-section { background: var(--off-white); border-top: 2px solid var(--black); border-bottom: 2px solid var(--black); }
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 48px;
-  border: 2px solid var(--black);
+/* ─── CALCULATOR ─────────────────────────────────── */
+.calc-layout { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:stretch; margin-top:48px; }
+.field { margin-bottom:24px; }
+.field label { display:flex; justify-content:space-between; gap:12px; font-weight:700; font-size:.92rem; margin-bottom:9px; }
+.field output { font-variant-numeric:tabular-nums; color:var(--gold-d); font-weight:700; }
+.field small { display:block; color:var(--gray3); font-size:.77rem; margin-top:5px; }
+input[type=range] { width:100%; accent-color:var(--gold-d); }
+.calc-card {
+  background:var(--ink); color:var(--white);
+  border-radius:10px; padding:34px 30px;
+  display:flex; flex-direction:column; gap:18px; justify-content:center;
 }
-.step-card {
-  padding: 32px 24px;
-  border-right: 2px solid var(--black);
-  background: var(--white);
-}
-.step-card:last-child { border-right: none; }
-.step-num {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 16px;
-}
-.step-when {
-  font-family: var(--f-mono);
-  font-size: .7rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gray-600);
-  margin-bottom: 8px;
-}
-.step-card h3 { margin-bottom: 8px; font-size: 1.05rem; }
-.step-card p { color: var(--gray-600); font-size: .9rem; line-height: 1.6; }
+.cr { display:flex; justify-content:space-between; align-items:baseline; gap:12px; border-bottom:1px solid rgba(255,255,255,.1); padding-bottom:15px; }
+.cr span { color:rgba(255,255,255,.55); font-size:.9rem; }
+.cr b { font-size:1.25rem; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.cr.big { border-bottom:none; padding-bottom:0; }
+.cr.big b { font-size:clamp(1.8rem,4vw,2.6rem); color:var(--gold-l); }
+.calc-fine { color:rgba(255,255,255,.35); font-size:.75rem; }
 
-/* Compare table */
-.compare-section { background: var(--white); }
-.table-wrap {
-  margin-top: 40px;
-  border: 2px solid var(--black);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-table { border-collapse: collapse; width: 100%; font-size: .95rem; }
-th, td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
-thead th { font-weight: 800; font-size: .82rem; letter-spacing: .03em; text-transform: uppercase; background: var(--gray-100); }
-thead th.us { background: var(--black); color: var(--gold-light); }
-td.us { background: rgba(212,168,67,.08); font-weight: 700; }
-tbody th { font-weight: 600; color: var(--gray-600); font-size: .88rem; }
-tbody tr:last-child td, tbody tr:last-child th { border-bottom: none; }
-.check { color: var(--green); font-weight: 900; }
-.cross { color: var(--red); }
+/* ─── COMPARE ───────────────────────────────────── */
+.compare-wrap { border:2px solid var(--ink); border-radius:10px; overflow:hidden; margin-top:44px; }
+table { border-collapse:collapse; width:100%; font-size:.92rem; }
+th,td { padding:15px 18px; text-align:left; border-bottom:1px solid var(--gray2); vertical-align:middle; }
+thead th { font-weight:800; font-size:.75rem; letter-spacing:.04em; text-transform:uppercase; background:var(--gray1); }
+thead th.us { background:var(--ink); color:var(--gold-l); }
+td.us { background:rgba(184,154,90,.07); font-weight:700; }
+tbody th { font-weight:600; color:var(--gray4); font-size:.85rem; }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom:none; }
+.y { color:var(--green); font-weight:800; }
+.n { color:var(--red); }
 
-/* Audit section */
-.audit-section { background: var(--off-white); border-top: 2px solid var(--black); border-bottom: 2px solid var(--black); }
-.audit-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-  margin-top: 48px;
-}
-.audit-card {
-  background: var(--white);
-  border: 2px solid var(--black);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-}
-.audit-card h3 { margin-bottom: 20px; }
-.audit-checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-.audit-checklist li {
-  display: grid;
-  grid-template-columns: 22px 1fr;
-  gap: 10px;
-  font-size: .97rem;
-  line-height: 1.5;
-}
-.audit-checklist li::before { content: "✓"; color: var(--green); font-weight: 900; padding-top: 2px; }
-
-/* Offer section */
-.offer-section { background: var(--black); color: var(--white); }
-.offer-section .section-label { color: rgba(255,255,255,.45); }
-.offer-section h2 { color: var(--white); }
-.offer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-  margin-top: 48px;
-}
+/* ─── OFFER ──────────────────────────────────────── */
+.offer-layout { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start; margin-top:48px; }
 .offer-card {
-  background: var(--white);
-  color: var(--black);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  border: 2px solid rgba(255,255,255,.1);
+  background:var(--white); color:var(--ink);
+  border-radius:10px; padding:36px 32px;
+  border:2px solid rgba(255,255,255,.12);
 }
-.offer-card h3 { margin-bottom: 20px; }
-.offer-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.offer-list li { display: grid; grid-template-columns: 20px 1fr; gap: 10px; font-size: .97rem; line-height: 1.55; }
-.offer-list li::before { content: "✓"; color: var(--green); font-weight: 900; padding-top: 2px; }
-.offer-lede { font-size: var(--s3); color: rgba(255,255,255,.72); line-height: 1.7; margin-top: 16px; }
+.offer-card-highlight { border:2px solid var(--gold); }
+.offer-list { list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:12px; }
+.offer-list li { display:grid; grid-template-columns:18px 1fr; gap:10px; font-size:.94rem; line-height:1.55; }
+.offer-list li::before { content:"✓"; color:var(--green); font-weight:900; padding-top:2px; }
+.offer-lede { color:rgba(255,255,255,.65); font-size:1.1rem; line-height:1.78; margin-top:18px; }
 
-/* Guarantee badge */
-.guarantee {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 20px;
-  align-items: center;
-  border: 2px solid var(--gold);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  margin-top: 24px;
-  background: rgba(212,168,67,.07);
+/* Guarantee */
+.guar {
+  display:grid; grid-template-columns:70px 1fr; gap:18px; align-items:center;
+  border:2px solid var(--gold); border-radius:10px; padding:20px 22px;
+  margin-top:24px; background:rgba(184,154,90,.08);
 }
-.guarantee-icon {
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  background: var(--gold);
-  display: grid;
-  place-items: center;
-  font-size: 2rem;
-}
-.guarantee b { font-size: 1.05rem; display: block; margin-bottom: 4px; }
-.guarantee p { font-size: .88rem; color: var(--gray-600); }
+.guar-icon { font-size:2.5rem; text-align:center; }
+.guar b { font-size:1rem; display:block; margin-bottom:4px; }
+.guar p { font-size:.87rem; color:var(--gray4); }
 
-/* Value equation */
-.value-section { background: var(--white); }
-.value-eq {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  gap: 0;
-  align-items: center;
-  margin-top: 48px;
-  border: 2px solid var(--black);
-}
-.value-block {
-  padding: 36px 24px;
-  text-align: center;
-  border-right: 2px solid var(--black);
-}
-.value-block:last-child { border-right: none; }
-.value-op {
-  padding: 20px;
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: var(--gray-400);
-  text-align: center;
-  white-space: nowrap;
-}
-.value-num {
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--gold-dark);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.value-block .label { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gray-600); }
+/* ─── AUDIT ──────────────────────────────────────── */
+.audit-layout { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start; margin-top:44px; }
+.audit-box { background:var(--white); border:2px solid var(--ink); border-radius:10px; padding:32px 28px; }
+.audit-list { list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:13px; }
+.audit-list li { display:grid; grid-template-columns:18px 1fr; gap:10px; font-size:.92rem; line-height:1.55; }
+.audit-list li::before { content:"✓"; color:var(--green); font-weight:900; }
+.find-box { border-left:4px solid var(--gold); padding-left:18px; margin-bottom:22px; }
+.find-box b { display:block; margin-bottom:4px; font-size:1rem; }
+.find-box p { color:var(--gray4); font-size:.88rem; line-height:1.65; }
 
-/* Founder note */
-.founder-section { background: var(--off-white); border-top: 2px solid var(--black); }
-.founder-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.founder-inner p { font-size: var(--s3); line-height: 1.75; }
-.founder-sig {
-  font-weight: 900;
-  font-size: 1.3rem;
-  letter-spacing: -.01em;
-  margin-top: 8px;
-}
-.founder-sig small {
-  display: block;
-  font-weight: 500;
-  font-size: .82rem;
-  color: var(--gray-600);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-top: 2px;
-}
+/* ─── FOUNDER ────────────────────────────────────── */
+.founder-block { max-width:680px; margin:48px auto 0; display:flex; flex-direction:column; gap:18px; }
+.founder-block p { font-size:1.1rem; line-height:1.8; }
+.sig { font-size:1.2rem; font-weight:900; letter-spacing:-.01em; margin-top:8px; }
+.sig small { display:block; font-weight:500; font-size:.8rem; color:var(--gray3); letter-spacing:.08em; text-transform:uppercase; }
 
-/* FAQ */
-.faq-section { background: var(--white); border-top: 2px solid var(--black); }
-.faq-wrap { max-width: 760px; margin: 0 auto; margin-top: 48px; }
-details { border-bottom: 2px solid var(--black); }
+/* ─── FAQ ────────────────────────────────────────── */
+.faq-list { max-width:720px; margin:44px auto 0; }
+details { border-bottom:1.5px solid var(--gray2); }
 summary {
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 1.05rem;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 22px 0;
+  cursor:pointer; list-style:none; display:flex;
+  justify-content:space-between; gap:20px;
+  padding:20px 0; font-weight:700; font-size:1rem;
 }
-summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; font-size: 1.6rem; line-height: 1; color: var(--gold-dark); font-weight: 900; }
-details[open] summary::after { content: "–"; }
-details p { padding-bottom: 20px; color: var(--gray-600); max-width: 62ch; font-size: .97rem; line-height: 1.7; }
+summary::-webkit-details-marker { display:none; }
+summary::after { content:"+"; font-size:1.5rem; line-height:1; color:var(--gold-d); font-weight:900; flex-shrink:0; }
+details[open] summary::after { content:"–"; }
+details p { padding-bottom:18px; color:var(--gray4); font-size:.94rem; line-height:1.72; max-width:60ch; }
 
-/* Final CTA */
-.final-section {
-  background: var(--black);
-  color: var(--white);
-  text-align: center;
-  padding-block: clamp(80px, 10vw, 140px);
-}
-.final-section h2 { color: var(--white); }
-.final-section .sub { font-size: var(--s3); color: rgba(255,255,255,.65); margin-top: 16px; max-width: 52ch; margin-inline: auto; }
+/* ─── FINAL CTA ──────────────────────────────────── */
+.final-sec { background:var(--ink); color:var(--white); text-align:center; padding-block:clamp(80px,10vw,140px); }
+.final-sec h2 { color:var(--white); }
+.final-sec .lede { color:rgba(255,255,255,.6); margin-top:14px; }
 
-/* Footer */
+/* ─── FOOTER ─────────────────────────────────────── */
 footer {
-  background: var(--black);
-  color: rgba(255,255,255,.45);
-  border-top: 2px solid rgba(255,255,255,.1);
-  padding-block: 40px 60px;
-  font-size: .78rem;
+  background:var(--ink);
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-block:36px 60px; font-size:.75rem;
+  color:rgba(255,255,255,.35);
 }
-footer .wrap { display: flex; flex-direction: column; gap: 12px; }
-footer nav { display: flex; flex-wrap: wrap; gap: 20px; }
-footer a { color: rgba(255,255,255,.55); text-decoration: none; }
-footer a:hover { color: var(--gold-light); }
+footer .w { display:flex; flex-direction:column; gap:10px; }
+footer nav { display:flex; flex-wrap:wrap; gap:18px; }
+footer a { color:rgba(255,255,255,.4); }
+footer a:hover { color:var(--gold-l); }
 
-/* Mobile bar */
+/* ─── MOBILE BAR ─────────────────────────────────── */
 .mbar {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 35;
-  background: var(--white); border-top: 2px solid var(--black);
-  padding: 12px 20px calc(12px + env(safe-area-inset-bottom,0px));
-  display: none;
+  position:fixed; left:0; right:0; bottom:0; z-index:50;
+  background:var(--white); border-top:2px solid var(--ink);
+  padding:11px 20px calc(11px + env(safe-area-inset-bottom,0px));
+  display:none;
 }
-.mbar .btn { width: 100%; }
+.mbar .btn { width:100%; }
 
-/* Exit modal */
-.modal {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.72);
-  display: grid; place-items: center; z-index: 50; padding: 16px;
-}
+/* ─── EXIT MODAL ─────────────────────────────────── */
+.modal { position:fixed; inset:0; background:rgba(0,0,0,.7); display:grid; place-items:center; z-index:60; padding:16px; }
 .modal-box {
-  background: var(--white); color: var(--black);
-  border-radius: var(--radius-lg);
-  max-width: 440px; width: 100%;
-  padding: 32px;
-  display: flex; flex-direction: column; gap: 16px;
-  position: relative;
-  border-top: 4px solid var(--gold);
-  border: 2px solid var(--black);
+  background:var(--white); color:var(--ink); border-radius:10px;
+  max-width:420px; width:100%; padding:32px;
+  display:flex; flex-direction:column; gap:14px;
+  position:relative; border-top:4px solid var(--gold);
 }
-.modal-close {
-  position: absolute; top: 12px; right: 14px;
-  background: none; border: 0;
-  font-size: 1.6rem; color: var(--gray-400);
-  cursor: pointer; line-height: 1;
-}
+.modal-x { position:absolute; top:10px; right:14px; background:none; border:0; font-size:1.6rem; color:var(--gray3); line-height:1; }
 
-/* Reveal */
-.reveal { opacity: 1; transform: none; transition: opacity .7s ease, transform .7s ease; }
-.js-reveal .reveal.pending { opacity: 0; transform: translateY(24px); }
+/* ─── REVEAL ─────────────────────────────────────── */
+.rv { opacity:1; transform:none; transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.js-rv .rv.p { opacity:0; transform:translateY(22px); }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .hero-inner, .audit-grid, .offer-grid, .calc-layout { grid-template-columns: 1fr; }
-  .steps-grid { grid-template-columns: 1fr 1fr; }
-  .step-card:nth-child(2) { border-right: none; }
-  .step-card:nth-child(1), .step-card:nth-child(2) { border-bottom: 2px solid var(--black); }
-  .stats-grid { grid-template-columns: repeat(2,1fr); }
-  .stat-item:nth-child(2) { border-right: none; }
-  .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 2px solid rgba(0,0,0,.15); padding-bottom: 20px; margin-bottom: 4px; }
-  .pain-grid { grid-template-columns: 1fr; }
-  .pain-card:nth-child(odd) { border-right: none; }
-  .pain-card { border-bottom: 2px solid var(--black) !important; }
-  .pain-card:last-child { border-bottom: none !important; }
-  .nav .btn { display: none; }
-  .mbar { display: block; }
-  .phone { transform: none; }
-  .value-eq { grid-template-columns: 1fr; }
-  .value-op { display: none; }
-  .value-block { border-right: none; border-bottom: 2px solid var(--black); }
-  .value-block:last-child { border-bottom: none; }
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media(max-width:900px){
+  .hero-inner,.calc-layout,.offer-layout,.audit-layout { grid-template-columns:1fr; }
+  .mech-grid { grid-template-columns:1fr 1fr; }
+  .mech-card:nth-child(2) { border-right:none; }
+  .mech-card:nth-child(1),.mech-card:nth-child(2) { border-bottom:2px solid var(--ink); }
+  .problem-grid { grid-template-columns:1fr; }
+  .problem-card { border-right:none!important; }
+  .problem-card:nth-child(3) { border-bottom:2px solid var(--ink)!important; }
+  .proof-item { padding:0 22px; }
+  .nav .btn { display:none; }
+  .mbar { display:block; }
+  .phone { transform:none; }
 }
-@media (max-width: 600px) {
-  .steps-grid { grid-template-columns: 1fr; }
-  .step-card { border-right: none !important; border-bottom: 2px solid var(--black) !important; }
-  .step-card:last-child { border-bottom: none !important; }
-  h1 { font-size: clamp(2rem, 10vw, 3rem); }
+@media(max-width:600px){
+  .mech-grid { grid-template-columns:1fr; }
+  .mech-card { border-right:none!important; border-bottom:2px solid var(--ink)!important; }
+  .mech-card:last-child { border-bottom:none!important; }
+  .proof-strip-inner { gap:20px 0; }
+  .proof-item { border-right:none!important; padding:12px 24px; }
 }
 </style>
 </head>
 <body>
 
-<div class="ann">⚡ Every minute you wait to respond, your competitor books the client</div>
-
+<!-- ── NAV ─────────────────────────────────────── -->
 <nav class="nav">
-  <div class="wrap nav-inner">
-    <a href="#top" class="nav-logo">Ori Pinto <span>AI Digital Growth</span></a>
-    <a class="btn btn-black btn-sm" data-link="audit" href="#audit">Free Lead Leak Audit →</a>
+  <div class="w nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="/logo.png" alt="Ori Pinto AI Digital Growth">
+    </a>
+    <a class="btn btn-dark btn-sm" data-link="audit" href="#audit">Free Lead Audit →</a>
   </div>
 </nav>
 
 <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <div>
-        <p class="section-label" style="color: rgba(255,255,255,.4); margin-bottom: 20px;">The #1 hidden revenue killer in service businesses</p>
-        <h1>You're paying for leads<br><em>you're not answering.</em></h1>
-        <p class="hero-sub">
-          The average business takes 5+ hours to respond to a new lead. The average lead stops waiting after 5 minutes. We fix that gap — AI replies in under 60 seconds, 24/7, in your voice, and books the call.
-        </p>
-        <div class="hero-ctas ctas" style="margin-top:36px;">
-          <a class="btn btn-gold btn-lg" data-link="audit" href="#audit">Get My Free Lead Leak Audit</a>
-          <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.3);" href="#how">See how it works</a>
-        </div>
-        <div class="risk-line hero-risk" style="margin-top:16px;">
-          <span>Free audit, no call needed</span>
-          <span>No contract or subscription</span>
-          <span>Full refund if no results</span>
-        </div>
+<!-- ── HERO ──────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="w hero-inner">
+
+    <!-- Left: Copy -->
+    <div>
+      <span class="kicker hero-kicker">AI Speed-to-Lead · 14-Day Pilot</span>
+      <h1 class="hero-h1">
+        Stop Losing Leads<br>You Already<br><em>Paid For.</em>
+      </h1>
+      <p class="hero-sub">
+        Every lead your ad generates is gone within 5 minutes if nobody answers.
+        We deploy AI that replies in under 60 seconds — 24/7, in your voice —
+        and turns those ignored inquiries into booked calls.
+        <strong style="color:#fff;">If it doesn't work in 14 days, you pay nothing.</strong>
+      </p>
+      <div class="hero-ctas ctas" style="margin-top:32px;">
+        <a class="btn btn-cta btn-lg" data-link="audit" href="#audit">Get My Free Lead Audit →</a>
+        <a class="btn btn-ghost-w" href="#how">See how it works</a>
       </div>
-      <div class="phone-wrap">
-        <div class="phone">
-          <div class="ph-top">
-            <div class="ph-av">AI</div>
-            <div>
-              <b>Your Business</b>
-              <small>Automated · Facebook & Instagram</small>
-            </div>
-          </div>
-          <div class="ph-body" id="chat">
-            <div class="msg in">Hi! I saw your ad about the offer… are you still taking new clients?</div>
-            <div class="typing"><i></i><i></i><i></i></div>
-            <div class="msg out">Hey! Yes, we're definitely still taking new clients — great timing! Are you looking to get started this week or next week?</div>
-            <div class="msg in">This week works! What does it cost?</div>
-            <div class="msg out">Love it! I'll send you all the details + a link to grab a time that works for you. Takes 60 seconds 👇</div>
-            <div class="booked">✓ Appointment booked — 47 seconds after lead came in</div>
-          </div>
-          <div class="ph-timer">
-            <span>Response time</span>
-            <b id="timer">0:00</b>
-          </div>
-        </div>
-        <p style="font-size:.74rem;color:rgba(255,255,255,.4);font-family:var(--f-mono);letter-spacing:.04em;">REAL CONVERSATION, NAMES CHANGED</p>
+      <div class="proof-line hero-proof" style="margin-top:14px;">
+        <span>Free audit, no call needed</span>
+        <span>No contract or subscription</span>
+        <span>Full refund if no results</span>
       </div>
     </div>
-  </section>
 
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="wrap">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-num">78%</div>
-          <div class="stat-label">of leads go to the first business that responds</div>
+    <!-- Right: Phone mockup -->
+    <div class="phone-shell">
+      <div class="phone">
+        <div class="ph-bar">
+          <div class="ph-av">OP</div>
+          <div>
+            <b>Your Business</b>
+            <small>AI-powered · replies in &lt;60s</small>
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">391×</div>
-          <div class="stat-label">more likely to qualify a lead contacted in under 60 sec</div>
+        <div class="ph-body" id="chat">
+          <div class="msg i">Hi, saw your ad — are you still taking new clients?</div>
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="msg o">Hey! Yes, we're open and would love to help. Quick question — are you looking to get started this week or next?</div>
+          <div class="msg i">This week works! What does it cost?</div>
+          <div class="msg o">Perfect! I'll send you everything + a link to grab a time that works. Takes 30 seconds 👇</div>
+          <div class="booked-pill">✓ Booked — 47 seconds after the lead arrived</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">&lt;60s</div>
-          <div class="stat-label">our AI response time, 24 hours a day, 7 days a week</div>
+        <div class="ph-foot">
+          <span>Response time</span>
+          <b id="timer">0:00</b>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">14</div>
-          <div class="stat-label">days to prove results — or you don't pay a cent</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PROOF STRIP ────────────────────────────────── -->
+<div class="proof-strip">
+  <div class="w">
+    <div class="proof-strip-inner">
+      <div class="proof-item">
+        <div class="proof-num">78%</div>
+        <div class="proof-lbl">of leads go to the first business that responds</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">391×</div>
+        <div class="proof-lbl">higher conversion if you respond within 60 seconds</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">&lt;60s</div>
+        <div class="proof-lbl">our guaranteed response time — nights, weekends, always</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">14</div>
+        <div class="proof-lbl">days to see results — or you get every dollar back</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROBLEM ───────────────────────────────────── -->
+<section class="sec">
+  <div class="w">
+    <span class="kicker">Sound familiar?</span>
+    <h2 style="max-width:680px;">You're not losing leads because your ads are bad.<br>You're losing them because nobody answers fast enough.</h2>
+    <div class="problem-grid rv">
+      <div class="problem-card">
+        <div class="p-icon">🕐</div>
+        <h3>Leads come in while you're with other clients</h3>
+        <p>Your team is heads-down serving people. Three new inquiries just submitted a form and started a mental timer. Whoever replies first wins — and right now, it's not you.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">🌙</div>
+        <h3>After-hours means tomorrow morning — which is too late</h3>
+        <p>People browse and buy decisions at night. By the time your inbox opens in the morning, your best leads have already booked with someone else, or forgotten they even asked.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">🔇</div>
+        <h3>No follow-up = no booking</h3>
+        <p>Someone asks "how much?" You reply. They go quiet. Nobody follows up. That wasn't a bad lead — it was a missed sequence. Most bookings happen on follow-up 2 or 3, which never gets sent.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">💸</div>
+        <h3>You keep spending on ads without fixing the leak</h3>
+        <p>More ad spend on a broken follow-up system just means more waste at scale. Fix the leak first. Then scale. The audit shows you exactly where the money is disappearing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE CALLOUT ──────────────────────────────── -->
+<section class="sec sec-dark" style="padding-block:clamp(52px,7vw,90px);">
+  <div class="ws" style="text-align:center;">
+    <p style="font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:900;line-height:1.22;letter-spacing:-.025em;color:#fff;margin:0;">
+      "The business that responds first wins <span style="color:var(--gold-l);">78% of the time.</span><br>Not the best product. Not the best price.<br>The fastest reply."
+    </p>
+    <p style="margin-top:18px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">— Harvard Business Review · Lead Response Management Study</p>
+  </div>
+</section>
+
+<!-- ── CALCULATOR ─────────────────────────────────── -->
+<section class="sec sec-cream" id="calc">
+  <div class="w">
+    <span class="kicker">Your numbers, not ours</span>
+    <h2>What is a slow reply actually costing you?</h2>
+    <p class="lede" style="margin-top:12px;max-width:54ch;">Move the sliders. The math uses only what you enter. Keep it conservative — the real number is probably higher.</p>
+    <div class="calc-layout rv">
+      <div>
+        <div class="field">
+          <label for="c-leads">Ad leads per month <output id="o-leads">80</output></label>
+          <input id="c-leads" type="range" min="10" max="500" step="10" value="80">
+        </div>
+        <div class="field">
+          <label for="c-late">% of leads waiting over 1 hour <output id="o-late">35%</output></label>
+          <input id="c-late" type="range" min="0" max="90" step="5" value="35">
+          <small>Not sure? The free audit measures this exactly — for your business.</small>
+        </div>
+        <div class="field">
+          <label for="c-book">Of those, how many would have booked with a fast reply? <output id="o-book">1 in 5</output></label>
+          <input id="c-book" type="range" min="2" max="10" step="1" value="5">
+          <small>Be conservative. Even 1-in-10 adds up fast.</small>
+        </div>
+        <div class="field">
+          <label for="c-value">Average value per new client <output id="o-value">$500</output></label>
+          <input id="c-value" type="range" min="100" max="5000" step="50" value="500">
+        </div>
+      </div>
+      <div class="calc-card" aria-live="polite">
+        <div class="cr"><span>Leads waiting over 1 hour</span><b id="r-late">28 / mo</b></div>
+        <div class="cr"><span>Bookings you're leaving behind</span><b id="r-book">6 / mo</b></div>
+        <div class="cr big"><span>Revenue walking out the door</span><b id="r-rev">$2,800 / mo</b></div>
+        <p class="calc-fine">Estimate only. Actual results depend on your offer and market. The audit shows your real numbers.</p>
+        <a class="btn btn-cta" data-link="audit" href="#audit">Find my real numbers — Free →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ───────────────────────────────── -->
+<section class="sec" id="how">
+  <div class="w">
+    <span class="kicker">How it works</span>
+    <h2>From "yes" to booked calls in 14 days</h2>
+    <div class="mech-grid rv">
+      <div class="mech-card">
+        <div class="mech-n">1</div>
+        <div class="mech-when">Day 0 · Free</div>
+        <h3>The Lead Audit</h3>
+        <p>I test your lead flow like a real prospect — submit a form, DM you, time the response. You get a screen-recorded video of what I found and a fixed quote to fix it.</p>
+      </div>
+      <div class="mech-card">
+        <div class="mech-n">2</div>
+        <div class="mech-when">Day 1–2 · You approve</div>
+        <h3>Built in your voice</h3>
+        <p>Every reply is written with you — your offer, your pricing, your tone. You review and approve every message template before anything goes live. Zero surprises.</p>
+      </div>
+      <div class="mech-card">
+        <div class="mech-n">3</div>
+        <div class="mech-when">Day 3–14 · Always on</div>
+        <h3>Every lead answered in &lt;60s</h3>
+        <p>New inquiry at 2am Sunday? Answered. Prospect goes quiet? Three follow-ups sent automatically. Your booking link appears at exactly the right moment — every time.</p>
+      </div>
+      <div class="mech-card">
+        <div class="mech-n">4</div>
+        <div class="mech-when">Day 14 · Review together</div>
+        <h3>Results or full refund</h3>
+        <p>We agreed on a booking target in writing before we started. Hit it — great. Miss it — every cent comes back. No partial credit, no exceptions, no questions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPARE ───────────────────────────────────── -->
+<section class="sec sec-cream" style="padding-top:0;">
+  <div class="w">
+    <span class="kicker">Your options</span>
+    <h2>Three ways to fix a speed-to-lead problem</h2>
+    <div class="compare-wrap rv">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Do nothing / front desk</th>
+            <th>Hire someone</th>
+            <th class="us">AI Speed-to-Lead</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>After-hours coverage</th>
+            <td class="n">Leads wait till morning</td>
+            <td class="n">Only if you pay overtime</td>
+            <td class="us y">✓ 24/7, every day</td>
+          </tr>
+          <tr>
+            <th>Reply time</th>
+            <td class="n">Whenever someone is free</td>
+            <td class="n">Depends on the person</td>
+            <td class="us y">✓ Under 60 seconds</td>
+          </tr>
+          <tr>
+            <th>Follow-up sequences</th>
+            <td class="n">Rarely happens</td>
+            <td class="n">If they remember</td>
+            <td class="us y">✓ Up to 3, automatic</td>
+          </tr>
+          <tr>
+            <th>Consistent quality</th>
+            <td class="n">Varies by day and mood</td>
+            <td class="n">Depends on the hire</td>
+            <td class="us y">✓ Same every single time</td>
+          </tr>
+          <tr>
+            <th>Cost</th>
+            <td class="n">Lost revenue — forever</td>
+            <td class="n">Salary + benefits + turnover</td>
+            <td class="us y">✓ One-time pilot, no subscription</td>
+          </tr>
+          <tr>
+            <th>Risk</th>
+            <td class="n">Compounding and permanent</td>
+            <td class="n">Hard to undo a bad hire</td>
+            <td class="us y">✓ Full refund if no results</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFER ──────────────────────────────────────── -->
+<section class="sec sec-dark" id="offer">
+  <div class="w">
+    <span class="kicker" style="color:var(--gold-l);">The 14-day pilot</span>
+    <h2 style="color:#fff;max-width:680px;">Try it on your own leads.<br>It works or you don't pay.</h2>
+    <p class="offer-lede">Fixed quote after your free audit, based on your lead volume. One payment. No subscription. No contract. No risk. The guarantee is in writing before we start.</p>
+    <div class="offer-layout rv">
+      <!-- Left: What's in the pilot -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="offer-card">
+          <h3>What's in the 14-day pilot</h3>
+          <ul class="offer-list">
+            <li>AI replies to every new lead from your Meta ads in under 60 seconds — day and night, including weekends</li>
+            <li>Up to 3 follow-up messages for leads who go quiet — this is where most bookings actually happen</li>
+            <li>Your booking link delivered at exactly the right moment in every conversation</li>
+            <li>Custom reply scripts written in your voice — you approve everything before anything goes live</li>
+            <li>Day-14 report: every lead, every reply, every booking. Full transparency.</li>
+            <li>Option to continue monthly or walk away. No auto-renewal. Zero pressure.</li>
+          </ul>
+        </div>
+        <div class="guar">
+          <div class="guar-icon">🛡️</div>
+          <div>
+            <b>Written Results Guarantee</b>
+            <p>We agree on a target number of booked calls before we start — in writing. If we don't hit it in 14 days, you get every dollar back. No partial credit, no negotiation.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Right: CTA card -->
+      <div class="offer-card offer-card-highlight" style="display:flex;flex-direction:column;gap:20px;">
+        <div>
+          <span style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d);">Everything you get</span>
+          <h3 style="font-size:1.35rem;margin-top:8px;">The complete package</h3>
+        </div>
+        <ul class="offer-list">
+          <li>Free Lead Leak Audit (yours to keep, no strings)</li>
+          <li>Full AI Speed-to-Lead system, built for your business</li>
+          <li>24/7 lead coverage — nights, weekends, holidays</li>
+          <li>Automated 3-step follow-up sequence</li>
+          <li>Booking link integration with your current system</li>
+          <li>All reply templates written + approved by you</li>
+          <li>Day-14 performance report</li>
+          <li style="font-weight:800;color:var(--green);">Written money-back guarantee if results aren't hit</li>
+        </ul>
+        <a class="btn btn-cta btn-lg" style="margin-top:8px;justify-content:center;" data-link="audit" href="#audit">Start with the Free Audit →</a>
+        <p style="font-size:.78rem;color:var(--gray4);text-align:center;">Already have your quote? <a data-link="pay" href="#" style="color:var(--gold-d);font-weight:700;text-decoration:underline;">Pay securely via Stripe</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AUDIT ──────────────────────────────────────── -->
+<section class="sec" id="audit">
+  <div class="w">
+    <span class="kicker">Step one is always free</span>
+    <h2>The Free Lead Leak Audit</h2>
+    <p class="lede" style="margin-top:12px;max-width:54ch;">I test your lead flow exactly like a real potential customer. You get a short screen-recorded video of what I found — and a fixed quote to fix it. No call required.</p>
+    <div class="audit-layout rv">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="ctas">
+          <a class="btn btn-dark btn-lg" data-link="audit" href="#">Request My Free Audit →</a>
+        </div>
+        <div class="proof-line">
+          <span>Takes 2 minutes to request</span>
+          <span>Video is yours to keep</span>
+          <span>No call needed</span>
+        </div>
+        <div class="audit-box">
+          <h3 style="margin-bottom:4px;">What I check in your audit</h3>
+          <ul class="audit-list">
+            <li><span><strong>Your live ad.</strong> The offer, the hook, and where the click actually takes people.</span></li>
+            <li><span><strong>Your real reply time.</strong> I submit an inquiry and time the first response — no guessing.</span></li>
+            <li><span><strong>Your follow-up behavior.</strong> Do you come back if I go quiet? When? How many times?</span></li>
+            <li><span><strong>Your booking path.</strong> How many steps from "hi" to a confirmed appointment?</span></li>
+            <li><span><strong>Your after-hours gap.</strong> What happens when a lead comes in at 9pm Friday?</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="audit-box">
+          <h3 style="margin-bottom:18px;">What the audit usually uncovers</h3>
+          <div class="find-box">
+            <b>Average reply time: 4–6 hours</b>
+            <p>Across service businesses running lead ads. Most owners guess 20–30 minutes. The real number shocks them.</p>
+          </div>
+          <div class="find-box">
+            <b>After-hours: effectively 0% response rate</b>
+            <p>Leads submitted after 6pm or on weekends are answered the next business day — if they're answered at all.</p>
+          </div>
+          <div class="find-box" style="margin-bottom:0;border-color:var(--red);">
+            <b>Follow-up sequences: almost nonexistent</b>
+            <p>Most businesses send one reply. If the lead doesn't respond immediately, they're treated as dead. They're not — they just need one more message.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- PAIN SECTION -->
-  <section class="pain-section">
-    <div class="wrap">
-      <p class="section-label">Sound familiar?</p>
-      <h2 style="max-width:720px;">Where your ad budget quietly bleeds out</h2>
-      <div class="pain-grid">
-        <div class="pain-card">
-          <div class="pain-number">01</div>
-          <h3>Leads come in while you're with other clients</h3>
-          <p>Your team is heads-down serving people. Meanwhile, 3 new leads just submitted a form and started a timer in their head. The one who answers first wins — and it's not you.</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-number">02</div>
-          <h3>After-hours inquiries → morning graveyard</h3>
-          <p>Most people browse and submit at night. By the time someone opens Instagram in the morning, those leads have already booked elsewhere, ghosted, or moved on. Silence = rejection in their mind.</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-number">03</div>
-          <h3>One reply, then crickets</h3>
-          <p>Someone asks "How much?" You respond. They go quiet. No follow-up happens. They needed one more nudge — and they didn't get it. That's not a bad lead. That's a missed sequence.</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-number">04</div>
-          <h3>Price questions kill the conversation</h3>
-          <p>When someone asks "How much?" the wrong answer is a number. The right answer is a conversation that leads to a booking. Your team sends a number. The lead vanishes.</p>
-        </div>
-      </div>
+<!-- ── FOUNDER NOTE ───────────────────────────────── -->
+<section class="sec sec-cream">
+  <div class="w" style="text-align:center;">
+    <span class="kicker">A note from Ori</span>
+    <div class="founder-block rv">
+      <p>I built this because I kept seeing the same thing: business owners spending real money on ads, watching leads roll in, and losing most of them because nobody answered fast enough.</p>
+      <p>It's not an ads problem. It's a speed-to-lead problem. And it's completely fixable — in 14 days, on your own leads, with a written guarantee you get your money back if it doesn't work.</p>
+      <p>I don't use inflated screenshots or borrowed case studies. The audit is free. The guarantee is in writing. That's the only way I'm comfortable asking for your business.</p>
+      <p class="sig">
+        Ori Pinto
+        <small>Founder · AI Digital Growth</small>
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CALLOUT QUOTE -->
-  <section class="callout-section">
-    <div class="wrap-sm">
-      <blockquote>
-        "The business that responds to a lead first wins <em>78% of the time.</em> Not the best product. Not the best price. The fastest reply."
-      </blockquote>
-      <p class="callout-sub">— Harvard Business Review, Lead Response Management Study</p>
+<!-- ── FAQ ────────────────────────────────────────── -->
+<section class="sec">
+  <div class="w">
+    <span class="kicker">Questions</span>
+    <h2 style="max-width:500px;">Before you move forward</h2>
+    <div class="faq-list rv">
+      <details>
+        <summary>How much does it cost?</summary>
+        <p>It depends on your lead volume, which we measure exactly in the free audit. After the audit, you get one fixed price for the 14-day pilot. One payment. No subscription. No contract.</p>
+      </details>
+      <details>
+        <summary>Will the AI sound like a robot?</summary>
+        <p>No. Every reply is written with you — your offer, your pricing, your tone. You review and approve every message template before anything goes live. People who've been through it say leads can't tell the difference.</p>
+      </details>
+      <details>
+        <summary>I already have a CRM or booking system. Do I need to change it?</summary>
+        <p>No. We work with what you already have. Leads get sent to the booking link you already use. We confirm the exact setup on day 0 — no surprises.</p>
+      </details>
+      <details>
+        <summary>Which platforms does this cover?</summary>
+        <p>New inquiries from your Facebook and Instagram ads — both lead forms and direct messages. We confirm the exact sources during the audit, before anything starts.</p>
+      </details>
+      <details>
+        <summary>What exactly counts as "results"?</summary>
+        <p>A specific number of booked calls or appointments from your ad leads — a number we agree on in writing before we start. If we don't hit it in 14 days, you get a full refund. No partial credit, no arguing, no exceptions.</p>
+      </details>
+      <details>
+        <summary>What happens after 14 days?</summary>
+        <p>You decide. You can stop — no obligation. Or keep it running as a monthly service that also manages your Meta campaigns. There's no automatic renewal and no pressure in either direction.</p>
+      </details>
+      <details>
+        <summary>What access do you need from me?</summary>
+        <p>Access to your Facebook page or ad account, the inbox where leads arrive today, and your booking link. That's it. Setup takes roughly 2 hours on day 1 or 2.</p>
+      </details>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CALCULATOR -->
-  <section class="calc-section" id="calc">
-    <div class="wrap">
-      <p class="section-label">Your numbers, not ours</p>
-      <h2>What is slow speed-to-lead costing you?</h2>
-      <p style="color:var(--gray-600);font-size:var(--s3);margin-top:14px;max-width:58ch;">Move the sliders. The math only uses what you enter. Keep your estimates conservative — the real number is probably worse.</p>
-      <div class="calc-layout">
-        <div>
-          <div class="field">
-            <label for="c-leads">Ad leads per month <output id="o-leads">80</output></label>
-            <input id="c-leads" type="range" min="10" max="500" step="10" value="80">
-          </div>
-          <div class="field">
-            <label for="c-late">% of leads waiting over 1 hour for a reply <output id="o-late">35%</output></label>
-            <input id="c-late" type="range" min="0" max="90" step="5" value="35">
-            <small>Not sure? The free audit measures this for you exactly.</small>
-          </div>
-          <div class="field">
-            <label for="c-book">Of those, how many would have booked with a fast reply <output id="o-book">1 in 5</output></label>
-            <input id="c-book" type="range" min="2" max="10" step="1" value="5">
-            <small>Be conservative. Even 1 in 10 adds up fast.</small>
-          </div>
-          <div class="field">
-            <label for="c-value">Average value per new client ($) <output id="o-value">$500</output></label>
-            <input id="c-value" type="range" min="100" max="3000" step="50" value="500">
-          </div>
-        </div>
-        <div class="calc-result" aria-live="polite">
-          <div class="calc-row">
-            <span>Leads waiting over 1 hour</span>
-            <b id="r-late">28 / mo</b>
-          </div>
-          <div class="calc-row">
-            <span>Bookings you're leaving on the table</span>
-            <b id="r-book">6 / mo</b>
-          </div>
-          <div class="calc-row big" style="border-bottom:none;padding-bottom:0;">
-            <span>Revenue walking out the door</span>
-            <b id="r-rev">$2,800 / mo</b>
-          </div>
-          <p class="fine">Estimate based only on your inputs. Actual results vary. The audit shows your real numbers.</p>
-          <a class="btn btn-gold" data-link="audit" href="#audit">Find my real numbers — Free →</a>
-        </div>
-      </div>
+<!-- ── FINAL CTA ──────────────────────────────────── -->
+<section class="final-sec">
+  <div class="ws" style="display:flex;flex-direction:column;align-items:center;gap:24px;">
+    <h2>Your next lead comes in tonight.</h2>
+    <p class="lede" style="max-width:50ch;text-align:center;">Request the free audit now. You get a screen-recorded video of your exact lead flow within 48 hours — free, no call, no commitment.</p>
+    <div class="ctas" style="justify-content:center;">
+      <a class="btn btn-cta btn-lg" data-link="audit" href="#audit">Get My Free Lead Audit →</a>
     </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-section" id="how">
-    <div class="wrap">
-      <p class="section-label">How it works</p>
-      <h2>From "let's do it" to booked calls in 14 days</h2>
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <div class="step-when">Day 0 · 10 minutes</div>
-          <h3>Free Lead Leak Audit</h3>
-          <p>I test your lead flow exactly like a real prospect. I submit a form, DM you, and time every response. You get a short video of everything I found — no fluff, just your real numbers.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <div class="step-when">Day 1–2 · You approve</div>
-          <h3>Built in your voice</h3>
-          <p>AI replies are written with you — your offer, your pricing, your tone. You review and approve every message template before anything goes live. Zero surprises.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <div class="step-when">Day 3–14 · Always on</div>
-          <h3>Every lead answered in &lt;60s</h3>
-          <p>New inquiry comes in at 2am on a Sunday? Answered. Prospect goes quiet after the first message? Three follow-ups sent automatically. Booking link in every conversation.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">4</div>
-          <div class="step-when">Day 14 · We review together</div>
-          <h3>Results or full refund</h3>
-          <p>We agreed on a target before we started. If we hit it — great. If we didn't reach the agreed number of bookings, you get every cent back. In writing. Before we start.</p>
-        </div>
-      </div>
+    <div class="proof-line" style="justify-content:center;color:rgba(255,255,255,.4);">
+      <span>Free audit, no call needed</span>
+      <span>Fixed quote after</span>
+      <span>Full refund if no results</span>
     </div>
-  </section>
-
-  <!-- COMPARE TABLE -->
-  <section class="compare-section" style="padding-top:0;">
-    <div class="wrap">
-      <p class="section-label">Your options</p>
-      <h2>Three ways to solve this problem</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Do nothing / front desk alone</th>
-              <th scope="col">Hire someone</th>
-              <th scope="col" class="us">AI Speed-to-Lead</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">After-hours coverage</th>
-              <td class="cross">Leads wait until morning</td>
-              <td class="cross">Only if you pay overtime</td>
-              <td class="us check">✓ 24/7, every day</td>
-            </tr>
-            <tr>
-              <th scope="row">Reply time</th>
-              <td class="cross">Whenever someone is free</td>
-              <td class="cross">Depends on the person</td>
-              <td class="us check">✓ Under 60 seconds</td>
-            </tr>
-            <tr>
-              <th scope="row">Follow-up sequences</th>
-              <td class="cross">Rarely happens</td>
-              <td class="cross">If they remember</td>
-              <td class="us check">✓ Up to 3, automatic</td>
-            </tr>
-            <tr>
-              <th scope="row">Consistent quality</th>
-              <td class="cross">Varies by day and mood</td>
-              <td class="cross">Varies by person</td>
-              <td class="us check">✓ Same quality every time</td>
-            </tr>
-            <tr>
-              <th scope="row">Cost</th>
-              <td class="cross">Lost revenue (ongoing)</td>
-              <td class="cross">Salary + training + turnover</td>
-              <td class="us check">✓ One-time pilot, no subscription</td>
-            </tr>
-            <tr>
-              <th scope="row">Risk</th>
-              <td class="cross">Permanent and compounding</td>
-              <td class="cross">Hard to undo a bad hire</td>
-              <td class="us check">✓ Full refund if no results</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE VALUE EQUATION (Hormozi) -->
-  <section class="value-section">
-    <div class="wrap">
-      <p class="section-label">Why this works</p>
-      <h2>The value equation working in your favor</h2>
-      <p style="color:var(--gray-600);margin-top:14px;max-width:56ch;font-size:var(--s3);">Alex Hormozi's value equation shows exactly why speed-to-lead changes everything.</p>
-      <div class="value-eq">
-        <div class="value-block">
-          <div class="value-num">↑</div>
-          <div style="font-weight:800;font-size:1.05rem;margin-bottom:6px;">Dream Outcome</div>
-          <div class="label">More bookings from the same ad spend</div>
-        </div>
-        <div class="value-op">×</div>
-        <div class="value-block">
-          <div class="value-num">↑</div>
-          <div style="font-weight:800;font-size:1.05rem;margin-bottom:6px;">Likelihood of Success</div>
-          <div class="label">Proven system, guaranteed result or refund</div>
-        </div>
-        <div class="value-op">÷</div>
-        <div class="value-block" style="border-right:2px solid var(--black);">
-          <div class="value-num">↓</div>
-          <div style="font-weight:800;font-size:1.05rem;margin-bottom:6px;">Time to Result</div>
-          <div class="label">Results visible within the first 14 days</div>
-        </div>
-        <div class="value-op">÷</div>
-        <div class="value-block">
-          <div class="value-num">↓</div>
-          <div style="font-weight:800;font-size:1.05rem;margin-bottom:6px;">Effort & Sacrifice</div>
-          <div class="label">You approve templates. We do everything else.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AUDIT + OFFER -->
-  <section class="audit-section" id="audit">
-    <div class="wrap">
-      <p class="section-label">Step one is free</p>
-      <h2>The Free Lead Leak Audit</h2>
-      <p style="color:var(--gray-600);margin-top:14px;max-width:54ch;font-size:var(--s3);">I test your lead flow exactly like a real customer. You get a short screen-recorded video of everything I found — and a fixed quote to fix it. No call required to get the audit.</p>
-      <div class="audit-grid">
-        <div style="display:flex;flex-direction:column;gap:24px;">
-          <div class="ctas">
-            <a class="btn btn-black btn-lg" data-link="audit" href="#">Request My Free Audit →</a>
-          </div>
-          <div class="risk-line">
-            <span>Takes 2 minutes to request</span>
-            <span>No sales call required</span>
-            <span>You keep the video either way</span>
-          </div>
-          <div style="background:var(--white);border:2px solid var(--black);border-radius:var(--radius-lg);padding:28px 24px;">
-            <p style="font-weight:800;font-size:1.05rem;margin-bottom:16px;">What I check in your audit:</p>
-            <ul class="audit-checklist">
-              <li><span><b>Your live ad.</b> The offer, the hook, and where the click actually goes.</span></li>
-              <li><span><b>Your real reply time.</b> I submit an inquiry and time the first response. No guesses.</span></li>
-              <li><span><b>Your follow-up behavior.</b> Do you come back if I go quiet? When? How many times?</span></li>
-              <li><span><b>Your booking path.</b> How many steps from "hi" to a booked call or appointment?</span></li>
-              <li><span><b>Your after-hours gap.</b> What happens when a lead comes in at 9pm on a Friday?</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="audit-card">
-          <h3>What the audit reveals</h3>
-          <p style="color:var(--gray-600);font-size:.95rem;margin-bottom:20px;">Most businesses are shocked by their actual numbers. Here's what the audit typically uncovers:</p>
-          <div style="display:flex;flex-direction:column;gap:20px;">
-            <div style="border-left:4px solid var(--gold);padding-left:16px;">
-              <b style="display:block;margin-bottom:4px;">Average reply time: 4–6 hours</b>
-              <p style="color:var(--gray-600);font-size:.9rem;">Across service businesses running lead ads. Most owners think it's 20 minutes.</p>
-            </div>
-            <div style="border-left:4px solid var(--gold);padding-left:16px;">
-              <b style="display:block;margin-bottom:4px;">After-hours: 0 response rate</b>
-              <p style="color:var(--gray-600);font-size:.9rem;">Leads submitted after 6pm or on weekends get answered the next business day — if at all.</p>
-            </div>
-            <div style="border-left:4px solid var(--gold);padding-left:16px;">
-              <b style="display:block;margin-bottom:4px;">Follow-up sequences: basically nonexistent</b>
-              <p style="color:var(--gray-600);font-size:.9rem;">Most businesses send one reply. If the lead doesn't respond, they're gone.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFFER SECTION -->
-  <section class="offer-section" id="offer">
-    <div class="wrap">
-      <p class="section-label">The 14-day pilot</p>
-      <h2>Try it on your own leads.<br>If it doesn't work, you don't pay.</h2>
-      <p class="offer-lede">You get a fixed quote after your free audit, based on your actual lead volume. One payment. No subscription. No contract. No risk.</p>
-      <div class="offer-grid" style="margin-top:48px;">
-        <div class="stack" style="gap:24px;">
-          <div class="offer-card">
-            <h3>What's included in the pilot</h3>
-            <ul class="offer-list" style="margin-top:16px;">
-              <li>AI replies to every new lead from your Meta ads in under 60 seconds — day and night</li>
-              <li>Up to 3 follow-up messages for leads who go quiet (the ones that convert the most)</li>
-              <li>Your booking link in every conversation at exactly the right moment</li>
-              <li>Replies written in your voice, reviewed and approved by you before going live</li>
-              <li>Day-14 report: every lead, every response, every booking — transparent</li>
-              <li>Option to continue as a monthly service or walk away. No auto-renewal.</li>
-            </ul>
-          </div>
-          <div class="guarantee">
-            <div class="guarantee-icon">🛡️</div>
-            <div>
-              <b>The Written Results Guarantee</b>
-              <p>Before we start, we agree in writing on the number of booked calls that counts as success. If we don't hit that number in 14 days, you get every dollar back. No questions asked.</p>
-            </div>
-          </div>
-        </div>
-        <div class="stack" style="gap:24px;">
-          <div class="offer-card" style="border:2px solid var(--gold);">
-            <p style="font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px;">Grand Slam Offer</p>
-            <h3 style="font-size:1.5rem;">Everything you get</h3>
-            <ul class="offer-list" style="margin-top:20px;">
-              <li>Free Lead Leak Audit (video recording, yours to keep)</li>
-              <li>AI Speed-to-Lead system, built for your business</li>
-              <li>Custom response scripts in your voice (you approve everything)</li>
-              <li>24/7 lead coverage — nights, weekends, holidays</li>
-              <li>Automated 3-step follow-up sequence</li>
-              <li>Booking link integration with your current system</li>
-              <li>Day-14 performance report</li>
-              <li style="font-weight:800;color:var(--green);">Written results guarantee — or full refund</li>
-            </ul>
-            <div style="margin-top:28px;">
-              <a class="btn btn-gold btn-lg" style="width:100%;justify-content:center;" data-link="audit" href="#audit">Get Started with Free Audit →</a>
-              <p style="font-size:.8rem;color:var(--gray-600);margin-top:10px;text-align:center;">Already have your quote? <a data-link="pay" href="#" style="color:var(--gold-dark);font-weight:700;text-decoration:underline;">Pay securely with Stripe</a></p>
-            </div>
-          </div>
-          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:20px 24px;">
-            <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.7;">
-              <strong style="color:var(--white);">Who this is for:</strong> Service businesses running paid ads on Facebook or Instagram who are spending money on leads but struggling to convert them into booked calls or appointments. If you're not running ads yet, this isn't the right fit.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUNDER NOTE -->
-  <section class="founder-section">
-    <div class="wrap">
-      <p class="section-label" style="text-align:center;">A note from Ori</p>
-      <div class="founder-inner" style="margin-top:32px;">
-        <p>I built this because I kept seeing the same thing over and over: business owners spending real money on ads, watching leads come in — and then losing them because nobody answered fast enough.</p>
-        <p>It's not a bad ad problem. It's a speed-to-lead problem. And it's 100% fixable in 14 days.</p>
-        <p>You won't find inflated screenshots or borrowed testimonials here. I'd rather prove it on your own leads, with your own numbers, with a written guarantee you get your money back if it doesn't work. That's the only kind of claim I'm willing to make.</p>
-        <p>The audit is free. Takes you 2 minutes to request. You get the video whether you move forward or not.</p>
-        <p class="founder-sig">
-          Ori Pinto
-          <small>Founder · AI Digital Growth</small>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section">
-    <div class="wrap">
-      <div style="max-width:760px;">
-        <p class="section-label">Questions</p>
-        <h2>Before you move forward</h2>
-      </div>
-      <div class="faq-wrap">
-        <details>
-          <summary>How much does it cost?</summary>
-          <p>Pricing is based on your lead volume, which we measure in the free audit. After the audit you get one fixed price for the 14-day pilot. One payment, no subscription, no contract.</p>
-        </details>
-        <details>
-          <summary>Will it sound like a robot?</summary>
-          <p>No. Replies are written with you — your offer, your tone, your prices. You approve every message template before anything goes live. Leads don't know it's automated unless you tell them.</p>
-        </details>
-        <details>
-          <summary>I already have a CRM / booking system. Do I need to change it?</summary>
-          <p>No. We work with what you have. Leads get sent to the booking link you already use. We confirm the exact setup on day 0.</p>
-        </details>
-        <details>
-          <summary>Which platforms does this work on?</summary>
-          <p>New inquiries from your Facebook and Instagram ads — both lead forms and direct messages. We confirm the exact sources in the audit before we start.</p>
-        </details>
-        <details>
-          <summary>What counts as "results"?</summary>
-          <p>A specific number of booked calls or appointments from your ad leads — a number we agree on in writing before we start the pilot. If we don't reach it in 14 days, you get a full refund. No partial credit, no excuses.</p>
-        </details>
-        <details>
-          <summary>What happens after the 14 days?</summary>
-          <p>You decide. You can stop with no obligation — or keep it running as a monthly service that also manages your Meta campaigns. There's no automatic renewal and no pressure either way.</p>
-        </details>
-        <details>
-          <summary>What access do you need from me?</summary>
-          <p>Access to your Facebook page or ad account, the inbox where leads arrive today, and your booking link. That's it. The setup takes about 2 hours on day 1-2.</p>
-        </details>
-        <details>
-          <summary>I'm not sure if my business is a good fit. How do I know?</summary>
-          <p>If you're running paid ads on Facebook or Instagram and getting leads but struggling to convert them into booked calls, this is for you. The free audit will confirm whether it makes sense — and if it doesn't, I'll tell you that directly in the video.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-section">
-    <div class="wrap stack center" style="gap:24px;">
-      <h2>Your next lead comes in tonight.</h2>
-      <p class="sub">The question is: who answers it? Request the free audit now — you get a screen-recorded video of your exact lead flow within 48 hours. Free, no call needed.</p>
-      <div class="ctas" style="justify-content:center;margin-top:8px;">
-        <a class="btn btn-gold btn-lg" data-link="audit" href="#audit">Get My Free Lead Leak Audit →</a>
-      </div>
-      <div class="risk-line" style="justify-content:center;color:rgba(255,255,255,.45);">
-        <span>Free audit, no call needed</span>
-        <span>Fixed quote after</span>
-        <span>Full refund if no results</span>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
+<!-- ── FOOTER ─────────────────────────────────────── -->
 <footer>
-  <div class="wrap">
+  <div class="w">
     <nav>
       <a href="#">Terms</a>
       <a href="#">Privacy</a>
       <a data-link="book" href="#">Contact</a>
     </nav>
     <p>© 2026 Ori Pinto AI Digital Growth</p>
-    <p>The revenue calculator shows estimates based only on numbers you enter. Actual results depend on your ad volume, offer quality, and market. The written results guarantee described on this page is the only promise made. This site is not affiliated with or endorsed by Meta Platforms, Inc. Facebook and Instagram are trademarks of Meta Platforms, Inc.</p>
+    <p>The revenue calculator shows estimates based only on numbers you enter. Actual results depend on your ad volume, offer quality, and market. The written results guarantee is the only promise made on this page. This site is not affiliated with or endorsed by Meta Platforms, Inc. Facebook and Instagram are trademarks of Meta Platforms, Inc.</p>
   </div>
 </footer>
 
+<!-- ── MOBILE STICKY BAR ──────────────────────────── -->
 <div class="mbar">
-  <a class="btn btn-gold" data-link="audit" href="#audit">Get My Free Lead Leak Audit →</a>
+  <a class="btn btn-cta" data-link="audit" href="#audit">Get My Free Lead Audit →</a>
 </div>
 
-<div class="modal" id="exit" hidden role="dialog" aria-modal="true" aria-labelledby="exit-title">
+<!-- ── EXIT MODAL ─────────────────────────────────── -->
+<div class="modal" id="exit-modal" hidden role="dialog" aria-modal="true" aria-labelledby="exit-title">
   <div class="modal-box">
-    <button class="modal-close" id="exit-close" aria-label="Close">×</button>
-    <p style="font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-600);">Before you go</p>
-    <h3 id="exit-title" style="font-size:1.35rem;">How fast does your business answer a new lead?</h3>
-    <p style="color:var(--gray-600);">I'll test it exactly like a real prospect and send you a 2-minute screen-recorded video. Free. No call required.</p>
-    <a class="btn btn-gold" data-link="audit" href="#audit">Yes, send me the free audit</a>
-    <button class="btn btn-outline" id="exit-no">No thanks</button>
+    <button class="modal-x" id="exit-close" aria-label="Close">×</button>
+    <span class="kicker">Before you go</span>
+    <h3 id="exit-title" style="font-size:1.3rem;">How fast does your business answer a new lead right now?</h3>
+    <p style="color:var(--gray4);">I'll test it like a real prospect and send you a 2-minute video. Free. No call required.</p>
+    <a class="btn btn-cta" data-link="audit" href="#audit">Yes — send me the free audit</a>
+    <button class="btn btn-ghost" id="exit-no">No thanks</button>
   </div>
 </div>
 
 <script>
-// Fill these in before going live.
+/* ── LINKS ──────────────────────────── */
 const LINKS = {
   pay:   "https://buy.stripe.com/8x2fZgbwVeCydxgeA95Rm0c",
   book:  "",
   audit: ""
 };
-document.querySelectorAll("[data-link]").forEach(a => {
-  const url = LINKS[a.dataset.link];
-  if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
-  else { a.href = a.dataset.link === "pay" ? "#offer" : "#audit"; }
+document.querySelectorAll("[data-link]").forEach(el => {
+  const url = LINKS[el.dataset.link];
+  if (url) { el.href = url; el.target = "_blank"; el.rel = "noopener"; }
+  else { el.href = el.dataset.link === "pay" ? "#offer" : "#audit"; }
 });
 
-// Calculator
+/* ── CALCULATOR ─────────────────────── */
 (function(){
   const $ = id => document.getElementById(id);
   const fmt = n => "$" + Math.round(n).toLocaleString("en-US");
   function run(){
-    const leads = +$("c-leads").value, late = +$("c-late").value, one = +$("c-book").value, val = +$("c-value").value;
-    const lateN = Math.round(leads * late / 100);
+    const leads = +$("c-leads").value, late = +$("c-late").value;
+    const one = +$("c-book").value,   val  = +$("c-value").value;
+    const lateN  = Math.round(leads * late / 100);
     const booked = lateN / one;
     $("o-leads").textContent = leads;
-    $("o-late").textContent = late + "%";
-    $("o-book").textContent = "1 in " + one;
+    $("o-late").textContent  = late + "%";
+    $("o-book").textContent  = "1 in " + one;
     $("o-value").textContent = fmt(val);
-    $("r-late").textContent = lateN + " / mo";
-    $("r-book").textContent = (booked < 10 ? booked.toFixed(1).replace(/\.0$/,"") : Math.round(booked)) + " / mo";
-    $("r-rev").textContent = fmt(booked * val) + " / mo";
+    $("r-late").textContent  = lateN + " / mo";
+    $("r-book").textContent  = (booked < 10 ? booked.toFixed(1).replace(/\.0$/,"") : Math.round(booked)) + " / mo";
+    $("r-rev").textContent   = fmt(booked * val) + " / mo";
   }
   ["c-leads","c-late","c-book","c-value"].forEach(id => $(id).addEventListener("input", run));
   run();
 })();
 
-// Hero phone animation
+/* ── PHONE ANIMATION ────────────────── */
 (function(){
   const chat = document.getElementById("chat"); if (!chat) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const items = [...chat.children], timer = document.getElementById("timer");
-  const at = [300, 1100, 2600, 4600, 5800, 6800];
+  if (window.matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const els = [...chat.children], timer = document.getElementById("timer");
+  const at  = [350, 1200, 2700, 4700, 5900, 7000];
   function play(){
-    chat.classList.add("anim"); items.forEach(i => i.classList.remove("show"));
-    timer.textContent = "0:00"; let t0 = performance.now(), stop = false;
-    (function tick(){ if(stop) return; const sec = Math.min(47, Math.floor((performance.now()-t0)/2600*47)); timer.textContent = "0:" + String(sec).padStart(2,"0"); if(sec < 47) requestAnimationFrame(tick); })();
-    items.forEach((el,i) => setTimeout(() => { el.classList.add("show"); if(el.classList.contains("msg") && el.classList.contains("out")) items[1].classList.remove("show"); }, at[i]));
-    setTimeout(play, 11000);
+    chat.classList.add("anim"); els.forEach(e => e.classList.remove("show"));
+    timer.textContent = "0:00";
+    let t0 = performance.now();
+    (function tick(){
+      const s = Math.min(47, Math.floor((performance.now()-t0)/2700*47));
+      timer.textContent = "0:" + String(s).padStart(2,"0");
+      if (s < 47) requestAnimationFrame(tick);
+    })();
+    els.forEach((el,i) => setTimeout(() => {
+      el.classList.add("show");
+      if (el.classList.contains("msg") && el.classList.contains("o"))
+        els[1].classList.remove("show");
+    }, at[i]));
+    setTimeout(play, 12000);
   }
   play();
 })();
 
-// Scroll reveal
+/* ── HERO CANVAS: gold particle network ── */
 (function(){
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
-  const els = [...document.querySelectorAll("main section .wrap, main section .wrap-sm")].filter(e => e.getBoundingClientRect().top > innerHeight);
-  if (!els.length) return; document.documentElement.classList.add("js-reveal");
-  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.remove("pending"); io.unobserve(e.target); }}), {rootMargin:"0px 0px -10% 0px"});
-  els.forEach(e => { e.classList.add("reveal","pending"); io.observe(e); });
+  const c = document.getElementById("hero-canvas"); if(!c) return;
+  if (window.matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const x = c.getContext("2d");
+  let W, H, pts = [], vis = true, dpr = Math.min(2, devicePixelRatio||1);
+  function resize(){
+    W = c.clientWidth; H = c.clientHeight;
+    c.width = W*dpr; c.height = H*dpr;
+    x.setTransform(dpr,0,0,dpr,0,0);
+    const n = Math.min(55, Math.round(W*H/18000));
+    pts = Array.from({length:n},()=>({
+      x:Math.random()*W, y:Math.random()*H,
+      z:.4+Math.random()*.8,
+      vx:(Math.random()-.5)*.22,
+      vy:(Math.random()-.5)*.22
+    }));
+  }
+  resize(); addEventListener("resize", resize);
+  new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(c);
+  (function f(){
+    requestAnimationFrame(f); if(!vis) return;
+    x.clearRect(0,0,W,H);
+    for(const p of pts){
+      p.x += p.vx*p.z; p.y += p.vy*p.z;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+    }
+    for(let i=0;i<pts.length;i++){
+      const a=pts[i];
+      for(let j=i+1;j<pts.length;j++){
+        const b=pts[j], d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<120){
+          x.strokeStyle=`rgba(212,184,122,${.18*(1-d/120)})`;
+          x.lineWidth=.7; x.beginPath();
+          x.moveTo(a.x,a.y); x.lineTo(b.x,b.y); x.stroke();
+        }
+      }
+      x.fillStyle=`rgba(212,184,122,${.3+.5*(a.z-.4)})`;
+      x.beginPath(); x.arc(a.x,a.y,1.1*a.z+.3,0,7); x.fill();
+    }
+  })();
 })();
 
-// Exit intent
+/* ── SCROLL REVEAL ──────────────────── */
 (function(){
-  const m = document.getElementById("exit"); let shown = false, armed = false;
-  setTimeout(() => { armed = true; }, 9000);
-  try { shown = sessionStorage.getItem("exitShown") === "1"; } catch(e) {}
-  const close = () => { m.hidden = true; };
-  document.addEventListener("mouseout", e => {
-    if (!armed || shown || e.relatedTarget || e.clientY > 8 || window.innerWidth < 900) return;
-    shown = true; m.hidden = false;
-    try { sessionStorage.setItem("exitShown","1"); } catch(e) {}
+  if (window.matchMedia("(prefers-reduced-motion:reduce)").matches || !("IntersectionObserver" in window)) return;
+  const els = [...document.querySelectorAll(".rv")].filter(e => e.getBoundingClientRect().top > innerHeight);
+  if (!els.length) return;
+  document.documentElement.classList.add("js-rv");
+  const io = new IntersectionObserver(
+    es => es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove("p"); io.unobserve(e.target); }}),
+    { rootMargin:"0px 0px -8% 0px" }
+  );
+  els.forEach(e=>{ e.classList.add("p"); io.observe(e); });
+})();
+
+/* ── EXIT INTENT ────────────────────── */
+(function(){
+  const m=document.getElementById("exit-modal"); let shown=false, armed=false;
+  setTimeout(()=>{armed=true;},9000);
+  try{ shown = sessionStorage.getItem("exitShown")==="1"; }catch(e){}
+  const close=()=>{m.hidden=true;};
+  document.addEventListener("mouseout",e=>{
+    if(!armed||shown||e.relatedTarget||e.clientY>8||innerWidth<900)return;
+    shown=true; m.hidden=false;
+    try{sessionStorage.setItem("exitShown","1");}catch(e){}
   });
   document.getElementById("exit-close").onclick = close;
-  document.getElementById("exit-no").onclick = close;
-  m.addEventListener("click", e => { if (e.target === m) close(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
-  m.querySelectorAll("[data-link]").forEach(a => a.addEventListener("click", close));
+  document.getElementById("exit-no").onclick    = close;
+  m.addEventListener("click", e=>{if(e.target===m)close();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+  m.querySelectorAll("[data-link]").forEach(a=>a.addEventListener("click",close));
 })();
 </script>
-
 </body>
 </html>
