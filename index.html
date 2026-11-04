@@ -362,6 +362,21 @@ footer a:hover { color:var(--gold-l); }
 }
 .modal-x { position:absolute; top:10px; right:14px; background:none; border:0; font-size:1.6rem; color:var(--gray3); line-height:1; }
 
+/* ─── LEAD FORM MODAL ────────────────────────────── */
+.lead-form { display:flex; flex-direction:column; gap:12px; }
+.lead-form label { display:flex; flex-direction:column; gap:6px; font-size:.82rem; font-weight:700; color:var(--ink); }
+.lead-form input {
+  font:inherit; font-size:1rem; padding:13px 14px; border:1.5px solid #D9D5CC; border-radius:6px;
+  background:var(--white); color:var(--ink); width:100%;
+}
+.lead-form input:focus { outline:none; border-color:var(--gold-d); box-shadow:0 0 0 3px rgba(184,154,90,.25); }
+.lead-form .btn { width:100%; margin-top:4px; }
+.lead-form .btn[disabled] { opacity:.6; cursor:wait; transform:none; }
+.lead-hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.lead-msg { font-size:.88rem; margin:0; }
+.lead-msg.err { color:#B3261E; }
+.lead-done { text-align:center; display:flex; flex-direction:column; gap:10px; }
+
 /* ─── REVEAL ─────────────────────────────────────── */
 .rv { opacity:1; transform:none; transition:opacity .7s var(--ease), transform .7s var(--ease); }
 .js-rv .rv.p { opacity:0; transform:translateY(22px); }
@@ -855,8 +870,43 @@ footer a:hover { color:var(--gold-l); }
   </div>
 </div>
 
+<!-- ── LEAD FORM MODAL ────────────────────────────── -->
+<div class="modal" id="lead-modal" hidden role="dialog" aria-modal="true" aria-labelledby="lead-title">
+  <div class="modal-box">
+    <button class="modal-x" id="lead-close" type="button" aria-label="Close">×</button>
+    <div id="lead-step-form">
+      <span class="kicker">Free Lead Audit</span>
+      <h3 id="lead-title" style="font-size:1.3rem;margin:6px 0 6px;">Where should I send your audit?</h3>
+      <p style="color:var(--gray4);margin:0 0 14px;">I'll test your lead response like a real prospect and send you a short video with what I found. Free, no call required.</p>
+      <form class="lead-form" id="lead-form" novalidate>
+        <label>Full name
+          <input name="name" type="text" autocomplete="name" required maxlength="100">
+        </label>
+        <label>Email
+          <input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="150">
+        </label>
+        <label>Phone
+          <input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30">
+        </label>
+        <div class="lead-hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <p class="lead-msg err" id="lead-err" hidden></p>
+        <button class="btn btn-cta" type="submit" id="lead-submit">Send Me My Free Audit →</button>
+        <p class="lead-msg" style="color:var(--gray3);text-align:center;font-size:.75rem;">No spam. Your details are only used to send your audit.</p>
+      </form>
+    </div>
+    <div class="lead-done" id="lead-step-done" hidden>
+      <span class="kicker">Got it</span>
+      <h3 style="font-size:1.3rem;margin:0;">Thanks! Your audit is on the way.</h3>
+      <p style="color:var(--gray4);margin:0;">I'll reach out shortly by email or text.</p>
+      <button class="btn btn-ghost" type="button" id="lead-done-close">Close</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ── LINKS ──────────────────────────── */
+// Google Apps Script web app URL that writes leads to the Google Sheet (see google-sheets/README.md)
+const LEAD_SHEET_URL = "";
 const LINKS = {
   pay:   "https://buy.stripe.com/8x2fZgbwVeCydxgeA95Rm0c",
   book:  "",
@@ -867,6 +917,77 @@ document.querySelectorAll("[data-link]").forEach(el => {
   if (url) { el.href = url; el.target = "_blank"; el.rel = "noopener"; }
   else { el.href = el.dataset.link === "pay" ? "#offer" : "#audit"; }
 });
+
+/* ── LEAD FORM ──────────────────────── */
+(function(){
+  const m = document.getElementById("lead-modal");
+  const form = document.getElementById("lead-form");
+  const err = document.getElementById("lead-err");
+  const btn = document.getElementById("lead-submit");
+  const stepForm = document.getElementById("lead-step-form");
+  const stepDone = document.getElementById("lead-step-done");
+  let lastFocus = null, source = "";
+
+  function open(src){
+    source = src || "";
+    lastFocus = document.activeElement;
+    stepForm.hidden = false; stepDone.hidden = true; err.hidden = true;
+    m.hidden = false;
+    setTimeout(() => form.elements.name.focus(), 30);
+  }
+  function close(){ m.hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+
+  // Every audit / contact button opens the form (unless an external link is set)
+  document.querySelectorAll('[data-link="audit"],[data-link="book"]').forEach(el => {
+    if (LINKS[el.dataset.link]) return;
+    el.addEventListener("click", e => {
+      e.preventDefault();
+      const sec = el.closest("section,header,footer,.modal,.mbar");
+      open((sec && (sec.id || sec.className.split(" ")[0])) || "page");
+    });
+  });
+  document.getElementById("lead-close").onclick = close;
+  document.getElementById("lead-done-close").onclick = close;
+  m.addEventListener("click", e => { if (e.target === m) close(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !m.hidden) close(); });
+
+  function showErr(t){ err.textContent = t; err.hidden = false; }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    err.hidden = true;
+    const f = form.elements;
+    const name = f.name.value.trim(), email = f.email.value.trim(), phone = f.phone.value.trim();
+    if (f.website.value) { stepForm.hidden = true; stepDone.hidden = false; return; } // bot
+    if (!name) return showErr("Please enter your name."), f.name.focus();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showErr("Please enter a valid email."), f.email.focus();
+    if (phone.replace(/\D/g, "").length < 7) return showErr("Please enter a valid phone number."), f.phone.focus();
+    if (!LEAD_SHEET_URL) return showErr("Form isn't connected yet. Please try again shortly.");
+
+    const qs = new URLSearchParams(location.search);
+    const data = new URLSearchParams({
+      name, email, phone,
+      source,
+      page: location.href.split("?")[0],
+      utm_source: qs.get("utm_source") || "",
+      utm_medium: qs.get("utm_medium") || "",
+      utm_campaign: qs.get("utm_campaign") || "",
+      referrer: document.referrer || ""
+    });
+    btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      await fetch(LEAD_SHEET_URL, { method: "POST", mode: "no-cors", body: data });
+      form.reset();
+      stepForm.hidden = true; stepDone.hidden = false;
+      if (window.fbq) fbq("track", "Lead");
+      if (window.gtag) gtag("event", "generate_lead");
+    } catch (_) {
+      showErr("Something went wrong. Please try again.");
+    } finally {
+      btn.disabled = false; btn.textContent = "Send Me My Free Audit →";
+    }
+  });
+})();
 
 /* ── CALCULATOR ─────────────────────── */
 (function(){
