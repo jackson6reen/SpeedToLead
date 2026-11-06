@@ -465,9 +465,9 @@ footer a:hover { color:var(--gold-l); }
     <div class="phone-shell">
       <div class="phone">
         <div class="ph-bar">
-          <div class="ph-av">OP</div>
+          <div class="ph-av" id="ph-av">OP</div>
           <div>
-            <b>Your Business</b>
+            <b id="ph-biz">Your Business</b>
             <small>AI-powered · replies in &lt;60s</small>
           </div>
         </div>
@@ -498,8 +498,8 @@ footer a:hover { color:var(--gold-l); }
         <div class="proof-lbl">of leads go to the first business that responds</div>
       </div>
       <div class="proof-item">
-        <div class="proof-num">391×</div>
-        <div class="proof-lbl">higher conversion if you respond within 60 seconds</div>
+        <div class="proof-num">391%</div>
+        <div class="proof-lbl">more conversions when leads get a reply within 1 minute</div>
       </div>
       <div class="proof-item">
         <div class="proof-num">&lt;60s</div>
@@ -549,7 +549,7 @@ footer a:hover { color:var(--gold-l); }
     <p style="font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:900;line-height:1.22;letter-spacing:-.025em;color:#fff;margin:0;">
       "The business that responds first wins <span style="color:var(--gold-l);">78% of the time.</span><br>Not the best product. Not the best price.<br>The fastest reply."
     </p>
-    <p style="margin-top:18px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">— Harvard Business Review · Lead Response Management Study</p>
+    <p style="margin-top:18px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">— Lead response industry research</p>
   </div>
 </section>
 
@@ -765,11 +765,11 @@ footer a:hover { color:var(--gold-l); }
         <div class="audit-box">
           <h3 style="margin-bottom:18px;">What the audit usually uncovers</h3>
           <div class="find-box">
-            <b>Average reply time: 4–6 hours</b>
-            <p>Across service businesses running lead ads. Most owners guess 20–30 minutes. The real number shocks them.</p>
+            <b>Your real reply time, measured</b>
+            <p>Most owners guess 20–30 minutes. The audit times the first reply to a real inquiry, so you see the actual number.</p>
           </div>
           <div class="find-box">
-            <b>After-hours: effectively 0% response rate</b>
+            <b>After-hours: often no reply until the next business day</b>
             <p>Leads submitted after 6pm or on weekends are answered the next business day — if they're answered at all.</p>
           </div>
           <div class="find-box" style="margin-bottom:0;border-color:var(--red);">
@@ -810,7 +810,7 @@ footer a:hover { color:var(--gold-l); }
       </details>
       <details>
         <summary>Will the AI sound like a robot?</summary>
-        <p>No. Every reply is written with you — your offer, your pricing, your tone. You review and approve every message template before anything goes live. People who've been through it say leads can't tell the difference.</p>
+        <p>No. Every reply is written with you — your offer, your pricing, your tone. You review and approve every message template before anything goes live. Nothing goes out that you haven't seen and signed off on.</p>
       </details>
       <details>
         <summary>I already have a CRM or booking system. Do I need to change it?</summary>
@@ -862,7 +862,7 @@ footer a:hover { color:var(--gold-l); }
       <a href="#">Privacy</a>
       <a data-link="book" href="#">Contact</a>
     </nav>
-    <p>© 2026 Ori Pinto AI Digital Growth</p>
+    <p>© 2026 Ori Pinto AI Digital Growth · 37 Cherry Hills Rd, Concord, ON L4K 1M2, Canada</p>
     <p>The revenue calculator shows estimates based only on numbers you enter. Actual results depend on your ad volume, offer quality, and market. The written results guarantee is the only promise made on this page. This site is not affiliated with or endorsed by Meta Platforms, Inc. Facebook and Instagram are trademarks of Meta Platforms, Inc.</p>
   </div>
 </footer>
@@ -921,6 +921,18 @@ footer a:hover { color:var(--gold-l); }
 /* ── LINKS ──────────────────────────── */
 // Google Apps Script web app URL that writes leads to the Google Sheet (see google-sheets/README.md)
 const LEAD_SHEET_URL = "https://script.google.com/macros/s/AKfycbwlOtcArgCah1tibbH4kNXP2AUixZwEzppvhaqlsf-EG1CP0tEdCplZz1f4piVKfo4/exec";
+/* ── PERSONALIZED DEMO (?biz=Business+Name) ── */
+(function(){
+  try {
+    const biz = (new URLSearchParams(location.search).get("biz") || "").trim().slice(0,40);
+    if (!biz) return;
+    const n = document.getElementById("ph-biz"); if (n) n.textContent = biz;
+    const a = document.getElementById("ph-av");
+    if (a) a.textContent = biz.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
+    document.title = "Speed-to-Lead demo for " + biz + " | Ori Pinto AI Digital Growth";
+  } catch(e) {}
+})();
+
 const LINKS = {
   pay:   "https://buy.stripe.com/8x2fZgbwVeCydxgeA95Rm0c",
   book:  "",
